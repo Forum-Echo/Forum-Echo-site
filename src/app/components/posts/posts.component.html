@@ -1,4 +1,15 @@
-<div *ngFor="let x of response" class="proposal">
-  <h1>{{x.title}}</h1>
-  {{x.content}}
-</div>
+<article *ngFor="let x of response" class="proposal">
+  <div class="proposal-head">
+    <h1>{{x.title}}</h1>
+  </div>
+  <p>{{x.content}}</p>
+  <div class="upvote">
+    <img src="assets/pictures/Arrow.png" alt="Card Back">
+    <img src="assets/pictures/Arrow-filled.png" class="img-top" alt="Card Front">
+  </div>
+  {{x.upvotes - x.downvotes}}
+  <div class="upvote">
+    <img src="assets/pictures/Arrow.png" alt="Card Back" class="downvote">
+    <img src="assets/pictures/Arrow-filled.png" class="img-top downvote" alt="Card Front">
+  </div>
+</article>

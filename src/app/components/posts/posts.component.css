@@ -1,7 +1,6 @@
 .proposal {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2%;
+  padding: 1%;
+  margin: 2% auto;
   height: 500px;
   width: 500px;
   border: 2px solid rgba(0,0,0,0.2);
@@ -10,6 +9,50 @@
   overflow: auto;
 }
 
-.proposal h1  {
-  margin: 10%;
+.proposal-head {
+  width: 70%;
+  height: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid #2c394b;
+}
+
+.proposal h1 {
+  text-align: center;
+  color: #1E448A;
+}
+
+.upvote {
+  margin-top: 49%;
+  width: 30px;
+  height: 30px;
+  border: none;
+  position: relative;
+  display: inline-block;
+}
+
+.upvote img {
+  width: 30px;
+  height: 30px;
+}
+
+.upvote .img-top {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+
+.card:hover .img-top {
+  display: inline;
+}
+
+.upvote img {
+  height: 20px;
+  width: 20px;
+}
+
+.downvote {
+  transform: rotate(180deg);
 }
