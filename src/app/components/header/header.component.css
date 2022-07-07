@@ -1,0 +1,31 @@
+.topBar {
+  background: #1E448A;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  z-index: 15;
+}
+.EUFlag {
+  border: 2px solid #FDCB0B;
+  width: 70px;
+  height: 47px;
+  position: absolute;
+  top: 1%;
+}
+
+profileDot {
+  border: 1px solid #FDCB0B;
+  border-radius: 50%;
+  color: #FFFFFF;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  font-weight: 500;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  left: 2%;
+  top: 10px;
+  cursor: pointer;
+}
