@@ -1,6 +1,19 @@
+@font-face {
+  font-family: Inter;
+  src: url("/assets/Inter/Inter-VariableFont_slnt,wght.ttf") format("truetype");
+  font-variation-settings: 'wght' 300 600;
+}
+@font-face {
+  font-family: Jost;
+  src: url("/assets/Jost/Jost-VariableFont_wght.ttf") format("truetype");
+  font-variation-settings: 'wght' 600;
+}
 body {
   background-color: #E5E9F0;
   margin: 0;
-  font-family: 'Inter', sans-serif;
-  font-size: 18px;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 18px !important;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

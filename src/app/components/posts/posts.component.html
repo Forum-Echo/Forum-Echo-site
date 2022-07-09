@@ -2,8 +2,18 @@
   <div class="proposal-head">
     <h1>{{x.title}}</h1>
   </div>
-  <p>{{x.content}}</p>
-  <div class="upvote">
+  <p class="policy">
+    {{x.content}}
+  </p>
+  <div className="metaData">
+    <div className="upDown">
+    <img alt="upvote" src="{{voteUp()}}" id="upVote" width="25" height="25" (click)="voteUp()" style="cursor: pointer; padding: 5px"/>
+    {{x.upvotes-x.downvotes}}
+    <img alt="downvote" src="{{voteDown()}}" id="downVote" width="25" height="25" (click)="voteDown()" style="transform: scaleY(-1); cursor: pointer; padding: 3px"/>
+    </div>
+    <div className="date">{{x.date}}</div>
+</div>
+  <!-- <div class="upvote">
     <img src="assets/pictures/Arrow.png" alt="Card Back">
     <img src="assets/pictures/Arrow-filled.png" class="img-top" alt="Card Front">
   </div>
@@ -11,5 +21,5 @@
   <div class="upvote">
     <img src="assets/pictures/Arrow.png" alt="Card Back" class="downvote">
     <img src="assets/pictures/Arrow-filled.png" class="img-top downvote" alt="Card Front">
-  </div>
+  </div> -->
 </article>
