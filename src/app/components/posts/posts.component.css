@@ -1,12 +1,41 @@
 .proposal {
+  border: 2px solid rgba(0,0,0,0.2);
+  border-radius: 30px;
+  margin: 2.5% 10% 5%;
+  width: 35vw;
+  height: 35vw;
+  max-height: 400px;
+  overflow: auto;
+  height: 100%;
+}
+.proposal-head {
+  margin: 10px 15px 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.proposal h1 {
+  font-family: 'Jost', sans-serif;
+  font-size: 30;
+  color: #1E448A;
+}
+.policy {
+  height: 200px;
+  margin: 0 15px 15px;
+  overflow:auto;
+  text-align: justify;
+  line-height: 120%;
+}
+/* .proposal {
   padding: 1%;
   margin: 2% auto;
-  height: 500px;
-  width: 500px;
+  height: 35vw;
+  width: 35vw;
   border: 2px solid rgba(0,0,0,0.2);
   border-radius: 30px;
   max-height: 400px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .proposal-head {
@@ -19,7 +48,10 @@
 
 .proposal h1 {
   text-align: center;
+  font-family: 'Jost', sans-serif;
+  font-size: 30;
   color: #1E448A;
+  font-weight: 600;
 }
 
 .upvote {
@@ -55,4 +87,4 @@
 
 .downvote {
   transform: rotate(180deg);
-}
+} */

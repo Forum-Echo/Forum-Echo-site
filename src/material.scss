@@ -1,0 +1,39 @@
+@import '~@angular/material/theming';
+@include mat-core();
+$my-app-primary: mat-palette($mat-blue-grey);
+$my-app-accent:  mat-palette($mat-pink, 500, 900, A100);
+$my-app-warn:    mat-palette($mat-deep-orange);
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+@include angular-material-theme($my-app-theme);
+.alternate-theme {
+  $alternate-primary: mat-palette($mat-light-blue);
+  $alternate-accent:  mat-palette($mat-yellow, 400);
+  $alternate-theme: mat-light-theme($alternate-primary, $alternate-accent);
+  @include angular-material-theme($alternate-theme);
+}
+
+.mat-select-value{
+  color: #1E448A;
+}
+.mat-select-arrow {
+  color: #1E448A;
+}
+.mat-form-field-appearance-legacy .mat-form-field-label {
+  color: rgba(30, 68, 138, 0.54);
+}
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: rgba(30, 68, 138, 0.42);
+}
+.mat-select-panel {
+  background: #E5E9F0;
+}
+.mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+  background: rgb(30 68 138 / 12%);
+}
+.mat-option {
+  color: rgba(30, 68, 138, 0.87);
+}
+.mat-form-field {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+}
