@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
     if (this.formGroup.valid) {
       this.authService.login(this.formGroup.value).subscribe(result => {
         localStorage.setItem('token', result.access_token);
-        console.log(result)
       });
     }
   }

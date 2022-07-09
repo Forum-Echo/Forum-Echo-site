@@ -18,6 +18,8 @@ import { RouterModule } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
 import { HomeComponent } from './components/home/home.component';
 import { routes} from "./app-routing.module";
+import {SorterComponent} from "./components/sorter/sorter.component";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { routes} from "./app-routing.module";
     PostsComponent,
     HomeComponent,
     LoginComponent,
+    SorterComponent,
   ],
     imports: [
       FormsModule,
@@ -43,6 +46,7 @@ import { routes} from "./app-routing.module";
       MatButtonModule,
       MatCardModule,
       MatToolbarModule,
+      MatSelectModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
