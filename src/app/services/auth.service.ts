@@ -13,4 +13,13 @@ export class AuthService {
   login(data: any):Observable<any> {
     return this.http.post(`${baseUrl}user/login`, data);
   }
+
+  logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("expires_at");
+  }
+
+  isLoggedIn() {
+    return localStorage.getItem('token');
+  }
 }
