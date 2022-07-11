@@ -1,0 +1,22 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+  <mat-card fxFlex="25">
+    <mat-toolbar color="primary">User Settings</mat-toolbar>
+    <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="formGroup" (ngSubmit)="editUser()">
+      <mat-form-field>
+        <input matInput placeholder="Username" formControlName="username">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Old Password" type="password" formControlName="old_password">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="New Password" type="password" formControlName="new_password">
+      </mat-form-field>
+      <button mat-raised-button type="submit" class="mt-5" color="primary">Save</button>
+    </form>
+    <form fxLayout="column" fxLayoutAlign="stretch" class="login-form">
+      <button mat-raised-button class="mt-5" color="warn" (click)="logOut()">Logout</button>
+    </form>
+  </mat-card>
+</div>
