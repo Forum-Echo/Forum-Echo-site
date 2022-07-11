@@ -15,12 +15,18 @@ import { HeaderComponent } from './components/header/header.component';
 import { InfoComponent } from './components/info/info.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { RouterModule } from "@angular/router";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HomeComponent } from './components/home/home.component';
 import { routes} from "./app-routing.module";
-import {SorterComponent} from "./components/sorter/sorter.component";
-import {MatSelectModule} from "@angular/material/select";
+import { SorterComponent } from "./components/sorter/sorter.component";
+import { MatSelectModule } from "@angular/material/select";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatOptionModule } from "@angular/material/core";
+import { NewPostComponent } from "./components/newpost/newpost.component";
+import { AuthInterceptor } from './interceptors/token-interceptor.service';
+import {UserSettingsComponent} from "./components/user-settings/user-settings.component";
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +36,8 @@ import {MatSelectModule} from "@angular/material/select";
     HomeComponent,
     LoginComponent,
     SorterComponent,
+    NewPostComponent,
+    UserSettingsComponent,
   ],
     imports: [
       FormsModule,
@@ -47,8 +55,16 @@ import {MatSelectModule} from "@angular/material/select";
       MatCardModule,
       MatToolbarModule,
       MatSelectModule,
+      MatDialogModule,
+      MatOptionModule,
     ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,15 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+  <mat-card fxFlex="25">
+    <mat-toolbar color="primary">New post</mat-toolbar>
+    <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="formGroup" (ngSubmit)="newPost()">
+      <mat-form-field>
+        <input matInput placeholder="Title" formControlName="title">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="content" formControlName="content">
+      </mat-form-field>
+      <button mat-raised-button type="submit" class="mt-5" color="primary">Login</button>
+    </form>
+  </mat-card>
+</div>
