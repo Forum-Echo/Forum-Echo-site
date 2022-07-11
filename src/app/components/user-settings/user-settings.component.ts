@@ -13,6 +13,8 @@ import {UserService} from "../../services/user.service";
 export class UserSettingsComponent implements OnInit {
 
   formGroup!: FormGroup;
+  isToggleOn = false;
+  passwordType = "password";
 
   constructor(
     private readonly authService: AuthService,
@@ -55,5 +57,9 @@ export class UserSettingsComponent implements OnInit {
 
   logOut() {
     return this.authService.logout();
+  }
+  togglePass(){
+    this.isToggleOn = !this.isToggleOn;
+    this.passwordType = this.isToggleOn ? "text" : "password";
   }
 }

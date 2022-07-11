@@ -5,10 +5,11 @@
 .main-div mat-card {
   padding: 0;
   max-width: 500px !important;
+  margin: 5px;
 }
 
 .login-form {
-  padding: 20px  ;
+  padding: 20px;
 }
 
 #content-text {

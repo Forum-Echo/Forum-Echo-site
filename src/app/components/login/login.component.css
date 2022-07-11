@@ -1,11 +1,16 @@
 .main-div {
-  margin-top: -5%;
+  margin-top: -70px;
 }
 
 .main-div mat-card {
   padding: 0;
+  max-width: 500px !important;
+  margin: 5px;
 }
 
 .login-form {
   padding: 20px  ;
+}
+#showP{
+  margin-bottom: 0.5em;
 }

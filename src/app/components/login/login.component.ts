@@ -12,6 +12,8 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
 
   formGroup!: FormGroup;
+  isToggleOn = false;
+  passwordType = "password";
 
   constructor(private authService: AuthService, public dialog: MatDialog, private router:Router) { }
 
@@ -44,5 +46,10 @@ export class LoginComponent implements OnInit {
     this.dialog.open(LoginComponent, {
       width: '100%'
     });
+  }
+
+  togglePass(){
+    this.isToggleOn = !this.isToggleOn;
+    this.passwordType = this.isToggleOn ? "text" : "password";
   }
 }

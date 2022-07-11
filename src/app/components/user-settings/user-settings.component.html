@@ -7,12 +7,16 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Old Password" type="password" formControlName="old_password">
+        <input matInput placeholder="Old Password" type={{passwordType}} formControlName="old_password">
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="New Password" type="password" formControlName="new_password">
+        <input matInput placeholder="New Password" type={{passwordType}} formControlName="new_password">
       </mat-form-field>
+      <label id="showP">
+        <input type="checkbox" name="showP" value="invisible" (click)="togglePass()"/>
+            Show Password
+        </label>
       <button mat-raised-button type="submit" class="mt-5" color="primary">Save</button>
     </form>
     <form fxLayout="column" fxLayoutAlign="stretch" class="login-form">
