@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sorter.component.css']
 })
 export class SorterComponent implements OnInit {
-  
 
   constructor( ){}
   ngOnInit():void { }

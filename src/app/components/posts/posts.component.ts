@@ -8,9 +8,9 @@ import { HttpClient } from "@angular/common/http";
 })
 export class PostsComponent implements OnInit {
   response: any;
-  
+
   upDown ={upvote: false, downvote: false};
-  
+
   emptyFilledPath = {
     empty: "assets/pictures/Arrow.png",
     filled: "assets/pictures/Arrow-filled.png"
@@ -35,10 +35,8 @@ export class PostsComponent implements OnInit {
   }
   voteDown= () => {
     this.upDown = {upvote: false, downvote: !this.upDown.downvote};
-    const downVoteName = this.emptyFilledPath[this.upDown.downvote ? 'filled': 'empty']
+    const downVoteName = this.emptyFilledPath[this.upDown.downvote ? 'filled' : 'empty']
     console.log(downVoteName);
     return downVoteName;
   }
-  
-  
 }

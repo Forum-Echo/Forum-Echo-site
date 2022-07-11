@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../../services/auth.service";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { AuthService } from "../../services/auth.service";
+import { MatDialog } from "@angular/material/dialog";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   formGroup!: FormGroup;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, public dialog: MatDialog, private router:Router) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -27,9 +29,20 @@ export class LoginComponent implements OnInit {
   loginProcess() {
     if (this.formGroup.valid) {
       this.authService.login(this.formGroup.value).subscribe(result => {
+        if (localStorage.getItem('token')) {
+          return window.location.reload();
+        }
         localStorage.setItem('token', result.access_token);
+        this.router.navigate([`/`]).then(() => {
+          window.location.reload();
+        });
       });
     }
   }
 
+  openLoginDialog(): void {
+    this.dialog.open(LoginComponent, {
+      width: '100%'
+    });
+  }
 }
