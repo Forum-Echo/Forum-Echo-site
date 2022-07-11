@@ -9,8 +9,6 @@ import { HttpClient } from "@angular/common/http";
 export class PostsComponent implements OnInit {
   response: any;
 
-  upDown ={upvote: false, downvote: false};
-
   emptyFilledPath = {
     empty: "assets/pictures/Arrow.png",
     filled: "assets/pictures/Arrow-filled.png"
@@ -27,16 +25,13 @@ export class PostsComponent implements OnInit {
       });
   }
 
-  voteUp = () => {
-    this.upDown = {upvote: !this.upDown.upvote, downvote: false};
-    const upVoteName = this.emptyFilledPath[this.upDown.upvote ? 'filled' : 'empty'];
-    console.log(upVoteName);
-    return upVoteName;
+  voteUp = (i: number) => {
+    this.response[i] = {upvote: !this.response[i].upvote, downvote: false};
   }
-  voteDown= () => {
-    this.upDown = {upvote: false, downvote: !this.upDown.downvote};
-    const downVoteName = this.emptyFilledPath[this.upDown.downvote ? 'filled' : 'empty']
-    console.log(downVoteName);
-    return downVoteName;
+  voteDown= (i: number) => {
+    this.response[i] = {upvote: false, downvote: !this.response[i].downvote};
   }
+
+  getUpvote = (i: number) => this.response[i].upvote ? 'filled' : 'empty';
+  getDownvote = (i: number) => this.response[i].downvote ? 'filled': 'empty';
 }

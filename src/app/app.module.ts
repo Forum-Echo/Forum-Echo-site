@@ -25,6 +25,9 @@ import { MatOptionModule } from "@angular/material/core";
 import { NewPostComponent } from "./components/newpost/newpost.component";
 import { AuthInterceptor } from './interceptors/token-interceptor.service';
 import {UserSettingsComponent} from "./components/user-settings/user-settings.component";
+import { HomeHeaderComponent } from './components/home-header/home-header.component';
+import { ProfileIconComponent } from './components/profile-icon/profile-icon.component';
+import { AddIconComponent } from './components/add-icon/add-icon.component';
 
 // @ts-ignore
 @NgModule({
@@ -38,6 +41,9 @@ import {UserSettingsComponent} from "./components/user-settings/user-settings.co
     SorterComponent,
     NewPostComponent,
     UserSettingsComponent,
+    HomeHeaderComponent,
+    ProfileIconComponent,
+    AddIconComponent,
   ],
     imports: [
       FormsModule,

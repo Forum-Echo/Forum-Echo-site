@@ -1,6 +1,40 @@
 @import "../node_modules/@angular/material/theming";
 @include mat-core();
 
+$mat-yellow: (
+  50: #fff8e0,
+  100: #feedb1,
+  200: #fde27d,
+  300: #fdd745,
+  400: #fdcd0b,
+  500: #fec400,
+  600: #feb500,
+  700: #ffa200,
+  800: #ff9000,
+  900: #ff6f00,
+  A100: #FFE57F,
+  A200: #FFD740,
+  A400: #FFC400,
+  A700: #FFAB00,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $dark-primary-text,
+    700: $dark-primary-text,
+    800: $dark-primary-text,
+    900: $dark-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  )
+);
+
+
 $my-primary: mat-palette($mat-indigo, 600);
 $my-accent: mat-palette($mat-light-green, 800);
 $my-warn: mat-palette($mat-yellow, 500);

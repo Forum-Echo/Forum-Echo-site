@@ -1,90 +1,51 @@
+.content {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column;
+  margin-top: 3.5em;
+}
 .proposal {
   border: 2px solid rgba(0,0,0,0.2);
   border-radius: 30px;
-  margin: 2.5% 10% 5%;
-  width: 35vw;
-  height: 35vw;
-  max-height: 400px;
-  overflow: auto;
-  height: 100%;
+  width: 45vw;
+  min-width: 300px;
+  /* height: 400px; */
+  margin: 0em 0 3em;
+  
 }
 .proposal-head {
-  margin: 10px 15px 2px;
+  margin: 15px 15px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .proposal h1 {
-  font-family: 'Jost', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-size: 30;
+  font-weight: 500;
   color: #1E448A;
+  text-align: center;
 }
 .policy {
-  height: 200px;
-  margin: 0 15px 15px;
+  height: 15em;
+  margin: 0 15px 0px;
   overflow:auto;
   text-align: justify;
   line-height: 120%;
 }
-/* .proposal {
-  padding: 1%;
-  margin: 2% auto;
-  height: 35vw;
-  width: 35vw;
-  border: 2px solid rgba(0,0,0,0.2);
-  border-radius: 30px;
-  max-height: 400px;
-  overflow-y: auto;
-  overflow-x: hidden;
+.metaData {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1em;
 }
-
-.proposal-head {
-  width: 70%;
-  height: 10%;
-  margin-left: auto;
-  margin-right: auto;
-  border-bottom: 1px solid #2c394b;
+.upDown {
+  display:flex;
+  align-items: center;
+  margin-left: 15px;
 }
-
-.proposal h1 {
-  text-align: center;
-  font-family: 'Jost', sans-serif;
-  font-size: 30;
-  color: #1E448A;
-  font-weight: 600;
+.date {
+  margin-right: 15px;
 }
-
-.upvote {
-  margin-top: 49%;
-  width: 30px;
-  height: 30px;
-  border: none;
-  position: relative;
-  display: inline-block;
-}
-
-.upvote img {
-  width: 30px;
-  height: 30px;
-}
-
-.upvote .img-top {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 99;
-}
-
-.card:hover .img-top {
-  display: inline;
-}
-
-.upvote img {
-  height: 20px;
-  width: 20px;
-}
-
-.downvote {
-  transform: rotate(180deg);
-} */
