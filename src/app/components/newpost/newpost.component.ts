@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {NewPostService} from "../../services/newpost.service";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {coerceStringArray} from "@angular/cdk/coercion";
-import {Router} from "@angular/router";
-import {routes} from "../../app-routing.module";
+import { NewPostService } from "../../services/newpost.service";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-newpost',
@@ -35,6 +33,5 @@ export class NewPostComponent implements OnInit {
         });
       });
     }
-
   }
 }
