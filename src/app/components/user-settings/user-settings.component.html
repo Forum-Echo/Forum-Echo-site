@@ -1,4 +1,4 @@
-<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+<div *ngIf="isLoggedIn(); else elseBlock" fxLayoutAlign="center center" fxFlexFill class="main-div">
   <mat-card fxFlex="25">
     <mat-toolbar color="primary">User Settings</mat-toolbar>
     <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="formGroup" (ngSubmit)="editUser()">
@@ -14,9 +14,9 @@
         <input matInput placeholder="New Password" type={{passwordType}} formControlName="new_password">
       </mat-form-field>
       <label id="showP">
-        <input type="checkbox" name="showP" value="invisible" (click)="togglePass()"/>
-            Show Password
-        </label>
+        <input type="checkbox" name="showP" value="invisible" (click)="togglePass()">
+        Show Password
+      </label>
       <button mat-raised-button type="submit" class="mt-5" color="primary">Save</button>
     </form>
     <form fxLayout="column" fxLayoutAlign="stretch" class="login-form">
@@ -24,3 +24,5 @@
     </form>
   </mat-card>
 </div>
+
+<ng-template #elseBlock></ng-template>

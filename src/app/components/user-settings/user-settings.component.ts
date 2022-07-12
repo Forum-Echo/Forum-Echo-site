@@ -62,4 +62,8 @@ export class UserSettingsComponent implements OnInit {
     this.isToggleOn = !this.isToggleOn;
     this.passwordType = this.isToggleOn ? "text" : "password";
   }
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
+  }
 }

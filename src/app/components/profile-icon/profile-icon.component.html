@@ -1,1 +1,2 @@
-<a href="/user"><span className="dot" id="profileDot">A</span></a>
+<a *ngIf="isLoggedIn(); else elseBlock" routerLink="user"><span class="profileDot">A</span></a>
+<ng-template #elseBlock><a routerLink="login"><span class="profileDot">A</span></a></ng-template>
