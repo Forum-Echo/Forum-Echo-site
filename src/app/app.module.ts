@@ -27,7 +27,7 @@ import { UserSettingsComponent } from "./components/user-settings/user-settings.
 import { HomeHeaderComponent } from './components/home-header/home-header.component';
 import { ProfileIconComponent } from './components/profile-icon/profile-icon.component';
 import { AddIconComponent } from './components/add-icon/add-icon.component';
-import { EditpostComponent } from './components/editpost/editpost.component';
+// import { EditpostComponent } from './components/editpost/editpost.component';
 
 // @ts-ignore
 @NgModule({
@@ -44,7 +44,7 @@ import { EditpostComponent } from './components/editpost/editpost.component';
     HomeHeaderComponent,
     ProfileIconComponent,
     AddIconComponent,
-    EditpostComponent,
+    // EditpostComponent,
   ],
     imports: [
       FormsModule,
