@@ -9,7 +9,6 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatToolbarModule } from '@angular/material/toolbar';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { InfoComponent } from './components/info/info.component';
@@ -17,17 +16,18 @@ import { PostsComponent } from './components/posts/posts.component';
 import { RouterModule } from "@angular/router";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HomeComponent } from './components/home/home.component';
-import { routes} from "./app-routing.module";
+import { AppRoutingModule } from "./app-routing.module";
 import { SorterComponent } from "./components/sorter/sorter.component";
 import { MatSelectModule } from "@angular/material/select";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatOptionModule } from "@angular/material/core";
 import { NewPostComponent } from "./components/newpost/newpost.component";
 import { AuthInterceptor } from './interceptors/token-interceptor.service';
-import {UserSettingsComponent} from "./components/user-settings/user-settings.component";
+import { UserSettingsComponent } from "./components/user-settings/user-settings.component";
 import { HomeHeaderComponent } from './components/home-header/home-header.component';
 import { ProfileIconComponent } from './components/profile-icon/profile-icon.component';
 import { AddIconComponent } from './components/add-icon/add-icon.component';
+import { EditpostComponent } from './components/editpost/editpost.component';
 
 // @ts-ignore
 @NgModule({
@@ -44,10 +44,11 @@ import { AddIconComponent } from './components/add-icon/add-icon.component';
     HomeHeaderComponent,
     ProfileIconComponent,
     AddIconComponent,
+    EditpostComponent,
   ],
     imports: [
       FormsModule,
-      RouterModule.forRoot(routes),
+      AppRoutingModule,
       HttpClientModule,
       BrowserModule,
       RouterModule,

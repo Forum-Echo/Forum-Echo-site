@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, public dialog: MatDialog, private router:Router) { }
 
   ngOnInit(): void {
+    console.log('debug')
     this.initForm();
   }
 
