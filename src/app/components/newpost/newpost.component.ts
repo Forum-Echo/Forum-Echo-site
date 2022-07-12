@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NewPostService } from "../../services/newpost.service";
+import { NewPostService } from "../../http/services/newpost.service";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 

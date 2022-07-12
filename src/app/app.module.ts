@@ -14,7 +14,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { InfoComponent } from './components/info/info.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { RouterModule } from "@angular/router";
-import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from "./app-routing.module";
 import { SorterComponent } from "./components/sorter/sorter.component";
@@ -22,14 +21,13 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatOptionModule } from "@angular/material/core";
 import { NewPostComponent } from "./components/newpost/newpost.component";
-import { AuthInterceptor } from './interceptors/token-interceptor.service';
 import { UserSettingsComponent } from "./components/user-settings/user-settings.component";
 import { HomeHeaderComponent } from './components/home-header/home-header.component';
 import { ProfileIconComponent } from './components/profile-icon/profile-icon.component';
 import { AddIconComponent } from './components/add-icon/add-icon.component';
 import { EditpostComponent } from './components/editpost/editpost.component';
+import { HttpModule } from "./http/http.module";
 
-// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +47,6 @@ import { EditpostComponent } from './components/editpost/editpost.component';
     imports: [
       FormsModule,
       AppRoutingModule,
-      HttpClientModule,
       BrowserModule,
       RouterModule,
       ReactiveFormsModule,
@@ -64,14 +61,9 @@ import { EditpostComponent } from './components/editpost/editpost.component';
       MatSelectModule,
       MatDialogModule,
       MatOptionModule,
+      HttpModule,
     ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true,
-    },
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
