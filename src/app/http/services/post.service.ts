@@ -8,14 +8,13 @@ import { Observable } from "rxjs";
 })
 export class PostService {
 
-  constructor(private readonly http: HttpClient) {
-  }
+  constructor(private readonly http: HttpClient) {}
 
-  getOnePost(post_id: string) {
-    this.http.get('');
+  getOnePost(post_id: string): Observable<any> {
+    return this.http.get(`${baseUrl}post/${post_id}`);
   }
 
   getAllPosts():Observable<any>  {
-    return this.http.get(`${baseUrl}post`);
+    return this.http.get(`${baseUrl}post/false`);
   }
 }

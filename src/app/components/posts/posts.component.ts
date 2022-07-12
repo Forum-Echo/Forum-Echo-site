@@ -10,8 +10,8 @@ export class PostsComponent implements OnInit {
   response: any;
 
   emptyFilledPath = {
-    empty: "assets/pictures/Arrow.png",
-    filled: "assets/pictures/Arrow-filled.png"
+    empty: 'assets/pictures/Arrow.png',
+    filled: 'assets/pictures/Arrow-filled.png'
   }
 
   constructor(private postService: PostService) { }
