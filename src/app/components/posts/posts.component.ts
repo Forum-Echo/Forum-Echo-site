@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
 import {PostService} from "../../services/post.service";
+import { AuthService } from "../../services/auth.service";
 
 @Component({
   selector: 'app-posts',
@@ -15,12 +15,18 @@ export class PostsComponent implements OnInit {
     filled: "assets/pictures/Arrow-filled.png"
   }
 
-  constructor(private postService: PostService) { }
+  constructor(    
+    private readonly authService: AuthService,
+    private postService: PostService) { }
 
   ngOnInit(): void {
     this.postService.getAllPosts().subscribe(result => {
       this.response = result;
     });
+  }
+  
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
   }
 
   voteUp = (i: number) => {

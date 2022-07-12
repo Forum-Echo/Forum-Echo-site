@@ -2,12 +2,12 @@
 <article *ngFor="let x of response; let i = index" class="proposal">
   <div class="proposal-head">
     <h1>{{x.title}}</h1>
-    <!-- <img src="assets/pictures/edit_icon.png" style="cursor: pointer; width:1.5em; height: 1.5em;"/> -->
+    <img src="assets/pictures/edit_icon.png" style="cursor: pointer; width:1.5em; height: 1.5em;"/>
   </div>
   <p class="policy">
     {{x.content}}
   </p>
-  <div class="metaData">
+  <div class="metaData" *ngIf="isLoggedIn(); else elseBlock" >
     <div class="upDown">
     <img alt="upvote" src="{{emptyFilledPath[getUpvote(i)]}}" id="upVote" width="25" height="25" (click)="voteUp(i)" style="cursor: pointer; padding: 5px"/>
     {{x.upvotes-x.downvotes}}

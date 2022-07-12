@@ -18,4 +18,8 @@ export class PostService {
   getAllPosts():Observable<any>  {
     return this.http.get(`${baseUrl}post`);
   }
+
+  getLikedPosts() {
+    return this.http.get(`$(baseUrl)user`);
+  }
 }
