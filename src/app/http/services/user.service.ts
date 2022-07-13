@@ -10,13 +10,8 @@ export class UserService {
 
   constructor(private readonly http: HttpClient) { }
 
-  register(username:string, email: string, password: string): Observable<any> {
-    const payload = {
-      username: username,
-      email: email,
-      password: password,
-    };
-    return this.http.post(`${baseUrl}user/register`, payload);
+  register(data: any): Observable<any> {
+    return this.http.post(`${baseUrl}user/register`, data);
   }
 
   edit(data: any):Observable<any> {

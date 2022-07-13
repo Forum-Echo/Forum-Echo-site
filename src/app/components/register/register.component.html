@@ -1,0 +1,29 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+  <mat-card fxFlex="25">
+    <mat-toolbar color="primary">Register</mat-toolbar>
+    <form fxLayoutAlign="stretch" fxLayout="column" class="post-form" [formGroup]="formGroup" (ngSubmit)="register()">
+      <mat-form-field>
+        <input matInput placeholder="Username" formControlName="username">
+        <button *ngIf="username" matSuffix mat-icon-button aria-label="Clear" (click)="username=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="email" placeholder="Email" formControlName="email">
+        <button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" formControlName="password">
+        <button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" class="mt-5" color="primary">Register</button>
+    </form>
+  </mat-card>
+</div>
