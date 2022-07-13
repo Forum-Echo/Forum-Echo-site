@@ -24,8 +24,8 @@ export class EditpostComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.initForm();
     this.getOldPost();
+    this.initForm();
   }
 
   getOldPost(): any {
@@ -50,8 +50,8 @@ export class EditpostComponent implements OnInit {
 
   initForm() {
     this.formGroup = new FormGroup({
-      title: new FormControl('', [Validators.required]),
-      content: new FormControl('', [Validators.required]),
+      title: new FormControl(this.title, [Validators.required]),
+      content: new FormControl(this.content, [Validators.required]),
     });
   }
 
