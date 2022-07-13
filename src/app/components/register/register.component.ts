@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { UserService } from "../../http/services/user.service";
-import { Router } from "@angular/router";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../../http/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -38,10 +38,14 @@ export class RegisterComponent implements OnInit {
 
   register() {
     if (this.formGroup.valid) {
-      this.userService.register(this.formGroup.value);
-
-      this.router.navigate([`/`]).then(() => {
-        window.location.reload();
+      this.userService.register(this.formGroup.value).subscribe(result => {
+        if (result.success) {
+          this.router.navigate([`/`]).then(() => {
+            window.location.reload();
+          });
+        } else {
+          console.log('Error!') //TODO: Added Error Page
+        }
       });
     }
   }

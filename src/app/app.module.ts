@@ -28,7 +28,7 @@ import { AddIconComponent } from './components/add-icon/add-icon.component';
 import { EditpostComponent } from './components/editpost/editpost.component';
 import { HttpModule } from "./http/http.module";
 import { RegisterComponent } from './components/register/register.component';
-import { MatIconModule } from "@angular/material/icon";
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
