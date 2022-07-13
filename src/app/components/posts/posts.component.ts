@@ -23,21 +23,71 @@ export class PostsComponent implements OnInit {
     });
   }
 
+  //Voting functions
   voteUp = (i: number) => {
-    // this.response[i] = {upvote: !this.response[i].upvote, downvote: false};
-  }
-  voteDown= (i: number) => {
-    // this.response[i] = {upvote: false, downvote: !this.response[i].downvote};
+    if(this.response[i].disliked_by.includes(localStorage.getItem('user_id'))){
+      //remove element
+      const userIndex = this.response[i].disliked_by.indexOf(localStorage.getItem('user_id'));
+      this.response[i].disliked_by.splice(userIndex, 1);
+    }
+    if(!this.response[i].liked_by.includes(localStorage.getItem('user_id'))){
+      // append element
+      this.response[i].liked_by.push(localStorage.getItem('user_id'));
+    }
+    else {
+      //remove element
+      const userIndex = this.response[i].liked_by.indexOf(localStorage.getItem('user_id'));
+      this.response[i].liked_by.splice(userIndex, 1);
+    }
+
+    console.log("Likes", this.response[i].liked_by);
+    console.log("Disliked", this.response[i].disliked_by);
   }
 
-  // getUpvote = (i: number) => this.response[i].upvote ? 'filled' : 'empty';
-  // getDownvote = (i: number) => this.response[i].downvote ? 'filled': 'empty';
-  getUpvote = (i: number) => false ? 'filled' : 'empty';
-  getDownvote = (i: number) => false ? 'filled': 'empty';
+  voteDown = (i: number) => {
+    if(this.response[i].liked_by.includes(localStorage.getItem('user_id'))){
+      //remove element
+      const userIndex = this.response[i].liked_by.indexOf(localStorage.getItem('user_id'));
+      this.response[i].liked_by.splice(userIndex, 1);
+    }
+    if(!this.response[i].disliked_by.includes(localStorage.getItem('user_id'))){
+      // append element
+      this.response[i].disliked_by.push(localStorage.getItem('user_id'));
+    }
+    else {
+      //remove element
+      const userIndex = this.response[i].disliked_by.indexOf(localStorage.getItem('user_id'));
+      this.response[i].disliked_by.splice(userIndex, 1);
+    }
+
+    console.log("Likes", this.response[i].liked_by);
+    console.log("Disliked", this.response[i].disliked_by);
+  }
+
+  // Display vote types
+  getUpvote = (i: number) => this.response[i].liked_by.includes(localStorage.getItem('user_id')) ? 'filled' : 'empty';
+  getDownvote = (i: number) => this.response[i].disliked_by.includes(localStorage.getItem('user_id')) ? 'filled': 'empty';
+
+  // Display large numbers of votes in a nice manner
+  displayVotes(post: any){
+    const votes = post.liked_by.length- post.disliked_by.length;
+    if(votes < 1000){
+      return votes;
+    }
+    else if (votes < 1000000){
+        return (votes/1000).toFixed(1)+ "K";
+    }
+    else {
+        return (votes/1000000).toFixed(1) + "M";
+    }
+  }
+
 
   isLoggedIn() {
     return this.authService.isLoggedIn();
   }
+
+  //if the user is the author, he can edit the given post
   isAuthor(author_id: string) {
     if(author_id === localStorage.getItem('user_id')) {
       return true;
