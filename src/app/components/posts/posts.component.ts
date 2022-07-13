@@ -24,16 +24,26 @@ export class PostsComponent implements OnInit {
   }
 
   voteUp = (i: number) => {
-    this.response[i] = {upvote: !this.response[i].upvote, downvote: false};
+    // this.response[i] = {upvote: !this.response[i].upvote, downvote: false};
   }
   voteDown= (i: number) => {
-    this.response[i] = {upvote: false, downvote: !this.response[i].downvote};
+    // this.response[i] = {upvote: false, downvote: !this.response[i].downvote};
   }
 
-  getUpvote = (i: number) => this.response[i].upvote ? 'filled' : 'empty';
-  getDownvote = (i: number) => this.response[i].downvote ? 'filled': 'empty';
+  // getUpvote = (i: number) => this.response[i].upvote ? 'filled' : 'empty';
+  // getDownvote = (i: number) => this.response[i].downvote ? 'filled': 'empty';
+  getUpvote = (i: number) => false ? 'filled' : 'empty';
+  getDownvote = (i: number) => false ? 'filled': 'empty';
 
   isLoggedIn() {
     return this.authService.isLoggedIn();
+  }
+  isAuthor(author_id: string) {
+    if(author_id === localStorage.getItem('user_id')) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
 }

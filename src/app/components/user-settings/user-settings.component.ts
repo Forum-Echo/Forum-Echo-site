@@ -37,6 +37,7 @@ export class UserSettingsComponent implements OnInit {
 
   editUser() {
     if (this.formGroup.valid) {
+      // I don't fully understand this first line
       localStorage.setItem('user_id', '62c002d34b96f31dbb8113ec')
       const formValue = this.formGroup.value;
 
