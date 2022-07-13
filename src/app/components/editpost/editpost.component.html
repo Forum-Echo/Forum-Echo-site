@@ -11,7 +11,7 @@
 
       <mat-form-field>
         <textarea matInput placeholder="Content" formControlName="content" [(ngModel)]="content"></textarea>
-        <button *ngIf="title" matSuffix mat-icon-button aria-label="Clear" (click)="title=''">
+        <button *ngIf="content" matSuffix mat-icon-button aria-label="Clear" (click)="content=''">
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
