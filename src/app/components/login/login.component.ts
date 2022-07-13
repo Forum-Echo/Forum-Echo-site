@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
   isToggleOn = false;
   passwordType = "password";
 
+  error: any;
+
   constructor(private authService: AuthService, public dialog: MatDialog, private router:Router) { }
 
   ngOnInit(): void {
@@ -32,21 +34,15 @@ export class LoginComponent implements OnInit {
   loginProcess() {
     if (this.formGroup.valid) {
       this.authService.login(this.formGroup.value).subscribe(result => {
-        if (localStorage.getItem('token')) {
-          return window.location.reload();
+        if (result.access_token) {
+          localStorage.setItem('token', result.access_token);
+          localStorage.setItem('user_id', '');
+          this.router.navigate([`/`]);
+          return;
         }
-        localStorage.setItem('token', result.access_token);
-        this.router.navigate([`/`]).then(() => {
-          window.location.reload();
-        });
+        this.error = 'Wrong credentialsx';
       });
     }
-  }
-
-  openLoginDialog(): void {
-    this.dialog.open(LoginComponent, {
-      width: '100%'
-    });
   }
 
   togglePass(){

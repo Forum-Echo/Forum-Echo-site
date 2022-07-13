@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from "../../http/services/post.service";
 import { AuthService } from "../../http/services/auth.service";
+import { VoteService } from "../../http/services/vote.service";
 
 @Component({
   selector: 'app-posts',
@@ -15,7 +16,7 @@ export class PostsComponent implements OnInit {
     filled: "assets/pictures/Arrow-filled.png"
   }
 
-  constructor(private postService: PostService, private authService: AuthService) { }
+  constructor(private postService: PostService, private authService: AuthService, private voteService: VoteService) { }
 
   ngOnInit(): void {
     this.postService.getAllPosts().subscribe(result => {
@@ -40,6 +41,8 @@ export class PostsComponent implements OnInit {
       this.response[i].liked_by.splice(userIndex, 1);
     }
 
+    this.voteService.upvote(this.response[i]._id, localStorage.getItem('user_id')).subscribe(result => console.log(result));
+
     console.log("Likes", this.response[i].liked_by);
     console.log("Disliked", this.response[i].disliked_by);
   }
@@ -59,6 +62,8 @@ export class PostsComponent implements OnInit {
       const userIndex = this.response[i].disliked_by.indexOf(localStorage.getItem('user_id'));
       this.response[i].disliked_by.splice(userIndex, 1);
     }
+
+    this.voteService.downvote(this.response[i]._id, localStorage.getItem('user_id')).subscribe(result => console.log(result));
 
     console.log("Likes", this.response[i].liked_by);
     console.log("Disliked", this.response[i].disliked_by);
@@ -89,11 +94,6 @@ export class PostsComponent implements OnInit {
 
   //if the user is the author, he can edit the given post
   isAuthor(author_id: string) {
-    if(author_id === localStorage.getItem('user_id')) {
-      return true;
-    }
-    else {
-      return false;
-    }
+    return author_id === localStorage.getItem('user_id');
   }
 }

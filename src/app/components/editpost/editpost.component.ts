@@ -21,17 +21,18 @@ export class EditpostComponent implements OnInit {
     private readonly postService: PostService
   ) { }
 
-  post_id: string = this.router.url.slice(10); //TODO: Get route parameter
+  post_id: string = this.router.url.slice(10);
 
   ngOnInit(): void {
     this.getOldPost();
-    this.initForm();
   }
 
   getOldPost(): any {
     return this.postService.getOnePost(this.post_id).subscribe(result => {
       this.title = result.title;
       this.content = result.content;
+
+      this.initForm();
     });
   }
 

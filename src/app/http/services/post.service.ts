@@ -15,7 +15,7 @@ export class PostService {
   }
 
   getAllPosts():Observable<any>  {
-    return this.http.get(`${baseUrl}post/`);
+    return this.http.get(`${baseUrl}post/false`);
   }
 
   newPost(data: any): Observable<any> {
