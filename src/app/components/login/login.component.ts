@@ -12,13 +12,13 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
 
   formGroup!: FormGroup;
+
   isToggleOn = false;
   passwordType = "password";
 
   constructor(private authService: AuthService, public dialog: MatDialog, private router:Router) { }
 
   ngOnInit(): void {
-    console.log('debug')
     this.initForm();
   }
 
@@ -52,5 +52,9 @@ export class LoginComponent implements OnInit {
   togglePass(){
     this.isToggleOn = !this.isToggleOn;
     this.passwordType = this.isToggleOn ? "text" : "password";
+  }
+
+  switchToRegister() {
+    this.router.navigate(['/register']);
   }
 }

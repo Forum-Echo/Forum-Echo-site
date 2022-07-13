@@ -45,6 +45,10 @@ export class EditpostComponent implements OnInit {
 
     if (this.formGroup.valid) {
       this.postService.editPost(payload);
+
+      this.router.navigate([`/`]).then(() => {
+        window.location.reload();
+      });
     }
   }
 

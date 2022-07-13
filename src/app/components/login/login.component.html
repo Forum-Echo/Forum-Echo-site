@@ -11,9 +11,10 @@
       </mat-form-field>
       <label id="showP">
         <input type="checkbox" name="showP"
-        value="invisible" (click)="togglePass()">
-            Show Password
-        </label>
+               value="invisible" (click)="togglePass()">
+        Show Password
+      </label>
+      <button mat-raised-button class="mt-5" color="accent" (click)="switchToRegister()">To Register?</button>
       <button mat-raised-button type="submit" class="mt-5" color="primary">Login</button>
     </form>
   </mat-card>
