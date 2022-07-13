@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NewPostService } from "../../http/services/newpost.service";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { PostService } from "../../http/services/post.service";
 
 @Component({
   selector: 'app-newpost',
@@ -12,7 +12,7 @@ export class NewPostComponent implements OnInit {
 
   formGroup!: FormGroup;
 
-  constructor(private newPostService: NewPostService, private router: Router) { }
+  constructor(private postService: PostService, private router: Router) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -27,7 +27,7 @@ export class NewPostComponent implements OnInit {
 
   newPost() {
     if (this.formGroup.valid) {
-      this.newPostService.newPost(this.formGroup.value).subscribe(result => {
+      this.postService.newPost(this.formGroup.value).subscribe(result => {
         this.router.navigate([`/`]).then(() => {
           window.location.reload();
         });

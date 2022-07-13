@@ -27,6 +27,8 @@ import { ProfileIconComponent } from './components/profile-icon/profile-icon.com
 import { AddIconComponent } from './components/add-icon/add-icon.component';
 import { EditpostComponent } from './components/editpost/editpost.component';
 import { HttpModule } from "./http/http.module";
+import { RegisterComponent } from './components/register/register.component';
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -43,26 +45,28 @@ import { HttpModule } from "./http/http.module";
     ProfileIconComponent,
     AddIconComponent,
     EditpostComponent,
+    RegisterComponent,
   ],
-    imports: [
-      FormsModule,
-      AppRoutingModule,
-      BrowserModule,
-      RouterModule,
-      ReactiveFormsModule,
-      FlexLayoutModule,
-      MatFormFieldModule,
-      MatInputModule,
-      BrowserAnimationsModule,
-      BrowserModule,
-      MatButtonModule,
-      MatCardModule,
-      MatToolbarModule,
-      MatSelectModule,
-      MatDialogModule,
-      MatOptionModule,
-      HttpModule,
-    ],
+  imports: [
+    FormsModule,
+    AppRoutingModule,
+    BrowserModule,
+    RouterModule,
+    ReactiveFormsModule,
+    FlexLayoutModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    MatButtonModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatOptionModule,
+    HttpModule,
+    MatIconModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
