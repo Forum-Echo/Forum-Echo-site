@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {PostService} from "../../http/services/post.service";
+import { HttpClient } from "@angular/common/http";
+import {PostService} from "../../services/post.service";
 
 @Component({
   selector: 'app-posts',
@@ -10,8 +11,8 @@ export class PostsComponent implements OnInit {
   response: any;
 
   emptyFilledPath = {
-    empty: 'assets/pictures/Arrow.png',
-    filled: 'assets/pictures/Arrow-filled.png'
+    empty: "assets/pictures/Arrow.png",
+    filled: "assets/pictures/Arrow-filled.png"
   }
 
   constructor(private postService: PostService) { }
