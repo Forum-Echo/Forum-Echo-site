@@ -19,6 +19,8 @@ export class RegisterComponent implements OnInit {
   email: string = '';
   password: string = '';
 
+  error: any;
+
   constructor(
     private readonly userService: UserService,
     private readonly router: Router
@@ -44,7 +46,7 @@ export class RegisterComponent implements OnInit {
             window.location.reload();
           });
         } else {
-          console.log('Error!') //TODO: Added Error Page
+          this.error = result;
         }
       });
     }

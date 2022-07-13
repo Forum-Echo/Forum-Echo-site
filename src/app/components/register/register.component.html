@@ -27,6 +27,9 @@
                value="invisible" (click)="togglePass()">
         Show Password
       </label>
+      <mat-error *ngIf="error">
+        {{error.error}}
+      </mat-error>
       <button mat-raised-button type="submit" class="mt-5" color="primary">Register</button>
       <button mat-raised-button class="mt-5" color="accent" (click)="switchToLogin()">To Login?</button>
     </form>

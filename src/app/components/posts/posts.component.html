@@ -2,25 +2,25 @@
 <article *ngFor="let x of response; let i = index" class="proposal">
   <div class="proposal-head">
     <h1>{{x.title}}</h1>
-    <img src="assets/pictures/edit_icon.png" style="cursor: pointer; width:1.5em; height: 1.5em;"/>
+    <a routerLink="/editpost/{{x._id}}"><img src="assets/pictures/edit_icon.png" style="cursor: pointer; width:1.5em; height: 1.5em;"></a>
   </div>
   <p class="policy">
     {{x.content}}
   </p>
   <div class="metaData" *ngIf="isLoggedIn(); else elseBlock" >
     <div class="upDown">
-    <img alt="upvote" src="{{emptyFilledPath[getUpvote(i)]}}" id="upVote" width="25" height="25" (click)="voteUp(i)" style="cursor: pointer; padding: 5px"/>
+    <img alt="upvote" src="{{emptyFilledPath[getUpvote(i)]}}" class="upVote" width="25" height="25" (click)="voteUp(i)" style="cursor: pointer; padding: 5px">
     {{x.upvotes-x.downvotes}}
-    <img alt="downvote" src="{{emptyFilledPath[getDownvote(i)]}}" id="downVote" width="25" height="25" (click)="voteDown(i)" style="transform: scaleY(-1); cursor: pointer; padding: 3px"/>
+    <img alt="downvote" src="{{emptyFilledPath[getDownvote(i)]}}" class="downVote" width="25" height="25" (click)="voteDown(i)" style="transform: scaleY(-1); cursor: pointer; padding: 3px">
     </div>
     <div class="date">{{x.creation_date.substring(0,10).split('-').reverse().join('/')}}</div>
 </div>
   <ng-template #elseBlock>
       <div class="metaData">
         <div class="upDown">
-          <img alt="upvote" src="{{emptyFilledPath[getUpvote(i)]}}" id="upVote" width="25" height="25" style="cursor: pointer; padding: 5px"/>
+          <img alt="upvote" src="{{emptyFilledPath[getUpvote(i)]}}" class="upVote" width="25" height="25" style="cursor: pointer; padding: 5px">
           {{x.upvotes-x.downvotes}}
-          <img alt="downvote" src="{{emptyFilledPath[getDownvote(i)]}}" id="downVote" width="25" height="25" style="transform: scaleY(-1); cursor: pointer; padding: 3px"/>
+          <img alt="downvote" src="{{emptyFilledPath[getDownvote(i)]}}" class="downVote" width="25" height="25" style="transform: scaleY(-1); cursor: pointer; padding: 3px">
         </div>
         <div class="date">{{x.creation_date.substring(0,10).split('-').reverse().join('/')}}</div>
       </div>

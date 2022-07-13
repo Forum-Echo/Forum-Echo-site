@@ -15,13 +15,13 @@ export class EditpostComponent implements OnInit {
   title: string = '';
   content: string = '';
 
-  post_id: string = ''; //TODO: Get route parameter
-
   constructor(
     private readonly router: Router,
     private route: ActivatedRoute,
     private readonly postService: PostService
   ) { }
+
+  post_id: string = this.router.url.slice(10); //TODO: Get route parameter
 
   ngOnInit(): void {
     this.getOldPost();
@@ -46,9 +46,7 @@ export class EditpostComponent implements OnInit {
     if (this.formGroup.valid) {
       this.postService.editPost(payload);
 
-      this.router.navigate([`/`]).then(() => {
-        window.location.reload();
-      });
+      this.router.navigate([`/`]);
     }
   }
 

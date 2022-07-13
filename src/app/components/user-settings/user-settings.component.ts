@@ -48,14 +48,14 @@ export class UserSettingsComponent implements OnInit {
         old_password: formValue.old_password,
         user_id: user_id,
       };
-      console.log(payload);
       this.edit.edit(payload).subscribe(result => {
-        console.log(result);
+        // console.log(result);
       })
     }
   }
 
   logOut() {
+    this.router.navigate(['/login'])
     return this.authService.logout();
   }
   togglePass(){
