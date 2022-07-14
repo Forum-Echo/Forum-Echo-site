@@ -1,7 +1,41 @@
 /* See material.scss for additional styling */
-.sorter {
+/* .sorter {
     position: absolute;
     width: 8em;
     margin: 1%;
     
+} */
+
+.sorter {
+    display: flex;
+    flex-direction: column; 
+    margin: 0.5em 1%;
+}
+.sortButton {
+    margin-bottom: 0.5em;
+    width: 25%;
+    max-width: 200px;
+    min-width: 110px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    justify-content: center;
+    border-radius:1em;
+    color: rgba(30, 68, 138, 1);
+    background-color: transparent;
+    border: 1px solid rgba(30, 68, 138, 0.87);
+    height: 2em;
+    cursor: pointer;
+}
+.clicked {
+    color: white;
+    background-color: #1e448a;
+    border: none;
+    font-size: 20px;
+    height: 2em;
+}
+
+.sortIcon {
+    width: 1em;
+    margin-left: 0.5em;
 }

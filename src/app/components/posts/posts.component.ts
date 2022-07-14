@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { PostService } from "../../http/services/post.service";
 import { AuthService } from "../../http/services/auth.service";
 import { VoteService } from "../../http/services/vote.service";
@@ -8,13 +8,16 @@ import { VoteService } from "../../http/services/vote.service";
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss']
 })
+@Injectable({ providedIn: 'root' })
 export class PostsComponent implements OnInit {
   response: any;
 
   emptyFilledPath = {
     empty: "assets/pictures/Arrow.png",
     filled: "assets/pictures/Arrow-filled.png"
-  }
+  };
+
+  postsLoaded: boolean = false;
 
   constructor(private postService: PostService, private authService: AuthService, private voteService: VoteService) { }
 
@@ -22,6 +25,7 @@ export class PostsComponent implements OnInit {
     this.postService.getAllPosts().subscribe(result => {
       this.response = result;
     });
+    this.postsLoaded = true;
   }
 
   //Voting functions
