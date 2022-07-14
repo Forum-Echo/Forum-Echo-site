@@ -42,13 +42,13 @@ export class RegisterComponent implements OnInit {
     if (this.formGroup.valid) {
       this.userService.register(this.formGroup.value).subscribe(result => {
         if (result.success) {
-          this.router.navigate([`/`]).then(() => {
-            window.location.reload();
-          });
+          this.router.navigate([`/login`]);
         } else {
-          this.error = result;
+          this.error = result.error;
         }
+        return;
       });
+      this.error = 'No Connection to Backend!'
     }
   }
 

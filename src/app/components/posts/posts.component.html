@@ -1,4 +1,10 @@
-<div class="content">
+<div *ngIf="error; else connected" fxLayoutAlign="center center">
+  <mat-error>
+    {{error}}
+  </mat-error>
+</div>
+
+<ng-template class="content" #connected>
   <mat-card *ngFor="let x of response; let i = index" class="proposal">
     <mat-toolbar class="proposal-head" color="primary">
       {{x.title}}
@@ -7,7 +13,7 @@
     <p class="policy">
       {{x.content}}
     </p>
-    <div class="metaData" *ngIf="isLoggedIn(); else elseBlock" >
+    <div class="metaData" *ngIf="isLoggedIn(); else notLoggedIn" >
       <div class="upDown">
       <img alt="upvote" src="{{emptyFilledPath[getUpvote(i)]}}" class="upVote" width="25" height="25" (click)="voteUp(i)" style="cursor: pointer; padding: 5px">
       {{displayVotes(x)}}
@@ -15,7 +21,7 @@
       </div>
       <div class="date">{{x.creation_date.substring(0,10).split('-').reverse().join('/')}}</div>
   </div>
-    <ng-template #elseBlock>
+    <ng-template #notLoggedIn>
         <div class="metaData">
           <div class="upDown">
             <img alt="upvote" src="{{emptyFilledPath[getUpvote(i)]}}" class="upVote" width="25" height="25" style="cursor: pointer; padding: 5px">
@@ -26,4 +32,4 @@
         </div>
     </ng-template>
   </mat-card>
-</div>
+</ng-template>

@@ -38,10 +38,12 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', result.access_token);
           localStorage.setItem('user_id', result.id);
           this.router.navigate([`/`]);
-          return;
+        } else {
+          this.error = 'Wrong credentials';
         }
-        this.error = 'Wrong credentials';
+        return;
       });
+      this.error = 'No Connection to Backend!'
     }
   }
 

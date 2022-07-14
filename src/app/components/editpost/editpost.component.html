@@ -15,6 +15,9 @@
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
+      <mat-error *ngIf="error">
+        {{error}}
+      </mat-error>
       <button mat-raised-button type="submit" class="mt-5" color="primary">Save Post</button>
       <button mat-raised-button class="mt-5" color="warn" (click)="deletePost()">Delete Post</button>
     </form>

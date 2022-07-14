@@ -18,14 +18,21 @@ export class PostsComponent implements OnInit {
   };
 
   postsLoaded: boolean = false;
+  error: any;
 
   constructor(private postService: PostService, private authService: AuthService, private voteService: VoteService) { }
 
   ngOnInit(): void {
+    this.initPosts();
+  }
+
+  initPosts(): void {
     this.postService.getAllPosts().subscribe(result => {
       this.response = result;
+      this.postsLoaded = true;
+      return;
     });
-    this.postsLoaded = true;
+    this.error = 'No Connection to Backend!';
   }
 
   //Voting functions

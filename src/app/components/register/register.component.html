@@ -23,10 +23,10 @@
         </button>
       </mat-form-field>
       <label id="showP">
-        <mat-checkbox type="checkbox" name="showP" (click)="togglePass()">Show Password</mat-checkbox>
+        <mat-checkbox name="showP" (click)="togglePass()">Show Password</mat-checkbox>
       </label>
       <mat-error *ngIf="error">
-        {{error.error}}
+        {{error}}
       </mat-error>
       <button mat-raised-button type="submit" class="mt-5" color="primary">Register</button>
       <button mat-raised-button class="mt-5" color="accent" (click)="switchToLogin()">To Login?</button>

@@ -14,6 +14,7 @@ export class EditpostComponent implements OnInit {
 
   title: string = '';
   content: string = '';
+  error: any;
 
   constructor(
     private readonly router: Router,
@@ -30,12 +31,14 @@ export class EditpostComponent implements OnInit {
   }
 
   getOldPost(): any {
-    return this.postService.getOnePost(this.post_id).subscribe(result => {
+    this.postService.getOnePost(this.post_id).subscribe(result => {
       this.title = result.title;
       this.content = result.content;
 
       this.initForm();
+      return result;
     });
+    this.error = 'No Connection to Backend!';
   }
 
   editPost() {
