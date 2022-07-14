@@ -1,4 +1,4 @@
-<form>
+<!-- <form>
     <mat-form-field class="sorter">
       <mat-label>Sort by</mat-label>
       <mat-select [(ngModel)]="selected" name="selected">
@@ -7,4 +7,10 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-</form>
+</form> -->
+<button type="button" (click)="toggleSelection(0)" [ngClass]="{'clicked': selection[0]}">
+  Top
+</button>
+<button type="button" (click)="toggleSelection(1)" [ngClass]="{'clicked': selection[1]}">
+  Newest
+</button>
