@@ -10,9 +10,7 @@
         <input matInput placeholder="Password" type={{passwordType}} formControlName="password">
       </mat-form-field>
       <label id="showP">
-        <input type="checkbox" name="showP"
-               value="invisible" (click)="togglePass()">
-        Show Password
+        <mat-checkbox type="checkbox" name="showP" (click)="togglePass()">Show Password</mat-checkbox>
       </label>
       <mat-error *ngIf="error">
         {{error}}

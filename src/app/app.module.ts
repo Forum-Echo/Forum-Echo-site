@@ -29,6 +29,7 @@ import { EditpostComponent } from './components/editpost/editpost.component';
 import { HttpModule } from "./http/http.module";
 import { RegisterComponent } from './components/register/register.component';
 import { MatIconModule } from '@angular/material/icon';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatOptionModule,
     HttpModule,
     MatIconModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
