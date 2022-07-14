@@ -15,7 +15,7 @@ import { InfoComponent } from './components/info/info.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { RouterModule } from "@angular/router";
 import { HomeComponent } from './components/home/home.component';
-import { AppRoutingModule } from "./app-routing.module";
+import { AppRoutingModule } from "./routing/app-routing.module";
 import { SorterComponent } from "./components/sorter/sorter.component";
 import { MatSelectModule } from "@angular/material/select";
 import { MatDialogModule } from "@angular/material/dialog";

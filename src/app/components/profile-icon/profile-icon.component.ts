@@ -4,7 +4,7 @@ import {AuthService} from "../../http/services/auth.service";
 @Component({
   selector: 'app-profile-icon',
   templateUrl: './profile-icon.component.html',
-  styleUrls: ['./profile-icon.component.css']
+  styleUrls: ['./profile-icon.component.scss']
 })
 export class ProfileIconComponent implements OnInit {
 

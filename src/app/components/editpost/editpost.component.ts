@@ -6,7 +6,7 @@ import { PostService } from "../../http/services/post.service";
 @Component({
   selector: 'app-editpost',
   templateUrl: './editpost.component.html',
-  styleUrls: ['./editpost.component.css']
+  styleUrls: ['./editpost.component.scss']
 })
 export class EditpostComponent implements OnInit {
 

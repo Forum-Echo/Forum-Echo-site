@@ -6,7 +6,7 @@ import { PostService } from "../../http/services/post.service";
 @Component({
   selector: 'app-newpost',
   templateUrl: './newpost.component.html',
-  styleUrls: ['./newpost.component.css']
+  styleUrls: ['./newpost.component.scss']
 })
 export class NewPostComponent implements OnInit {
 
