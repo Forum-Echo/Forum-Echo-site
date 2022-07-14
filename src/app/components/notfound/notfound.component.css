@@ -1,0 +1,23 @@
+.pageNotFound-form {
+  padding-bottom: 13px;
+  padding-left: 13px;
+  padding-right: 13px;
+}
+
+.pageNotFound {
+  margin-top: -100px;
+}
+
+.pageNotFound mat-card {
+  padding: 0;
+}
+
+.pageNotFound mat-card mat-error {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.pagenotfound-image {
+  width: 500px;
+  height: 278px;
+}

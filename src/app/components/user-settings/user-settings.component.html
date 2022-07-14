@@ -25,4 +25,16 @@
   </mat-card>
 </div>
 
-<ng-template #elseBlock></ng-template>
+<ng-template #elseBlock>
+  <div fxLayoutAlign="center center" fxFlexFill class="notLoggedIn">
+    <mat-card fxFlex="25">
+      <mat-toolbar color="primary">Not Logged in!</mat-toolbar>
+      <form fxLayout="column" fxLayoutAlign="stretch"></form>
+      <mat-error>
+        You seem to not be logged in! What do you want to do?
+      </mat-error>
+      <button mat-raised-button class="mt-5" color="primary" (click)="toLogin()">To Login?</button>
+      <button mat-raised-button class="mt-5" color="accent" (click)="toRegister()">To Register?</button>
+    </mat-card>
+  </div>
+</ng-template>

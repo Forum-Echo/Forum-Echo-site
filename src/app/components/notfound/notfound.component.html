@@ -1,0 +1,12 @@
+<div fxLayoutAlign="center center" fxFlexFill class="pageNotFound">
+  <mat-card fxFlex="25">
+    <mat-toolbar color="primary">Error 404 PageNotFound</mat-toolbar>
+    <form fxLayout="column" fxLayoutAlign="stretch" class="pageNotFound-form">
+      <img src="assets/pictures/404.png" alt="404 image" class="pagenotfound-image">
+      <mat-error>
+        You seem to have gotten lost. Where do you want to go?
+      </mat-error>
+      <button mat-raised-button class="mt-5" color="primary" (click)="toHome()">Go Home</button>
+    </form>
+  </mat-card>
+</div>

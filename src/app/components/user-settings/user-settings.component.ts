@@ -67,4 +67,12 @@ export class UserSettingsComponent implements OnInit {
   isLoggedIn() {
     return this.authService.isLoggedIn();
   }
+
+  toLogin() {
+    this.router.navigate(['login']);
+  }
+
+  toRegister() {
+    this.router.navigate(['register'])
+  }
 }

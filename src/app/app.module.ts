@@ -29,6 +29,7 @@ import { EditpostComponent } from './components/editpost/editpost.component';
 import { HttpModule } from "./http/http.module";
 import { RegisterComponent } from './components/register/register.component';
 import { MatIconModule } from '@angular/material/icon';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { MatIconModule } from '@angular/material/icon';
     AddIconComponent,
     EditpostComponent,
     RegisterComponent,
+    NotfoundComponent,
   ],
   imports: [
     FormsModule,
