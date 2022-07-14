@@ -24,6 +24,7 @@ export class SorterComponent implements OnInit {
         }
       }
     }
+    
   }
 
 }

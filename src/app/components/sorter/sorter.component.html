@@ -8,9 +8,11 @@
       </mat-select>
     </mat-form-field>
 </form> -->
-<button type="button" (click)="toggleSelection(0)" [ngClass]="{'clicked': selection[0]}">
-  Top
+<div class="sorter">
+<button type="button" (click)="toggleSelection(0)" [ngClass]="{'clicked': selection[0]}" class="sortButton">
+  Top<img [src]='selection[0] ? "assets/pictures/top_icon_white.png" : "assets/pictures/top_icon.png"' class="sortIcon"/>
 </button>
-<button type="button" (click)="toggleSelection(1)" [ngClass]="{'clicked': selection[1]}">
-  Newest
+<button type="button" (click)="toggleSelection(1)" [ngClass]="{'clicked': selection[1]}" class="sortButton">
+  Newest<img [src]='selection[1] ? "assets/pictures/newest_icon_white.png" : "assets/pictures/newest_icon.png"' class="sortIcon"/>
 </button>
+</div>
