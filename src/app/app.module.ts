@@ -31,6 +31,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { MatIconModule } from '@angular/material/icon';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { ProceeddialogueComponent } from './components/proceeddialogue/proceeddialogue.component';
+import { MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ProceeddialogueComponent } from './components/proceeddialogue/proceeddi
     ProceeddialogueComponent,
   ],
   imports: [
+    MatCheckboxModule,
     FormsModule,
     AppRoutingModule,
     BrowserModule,

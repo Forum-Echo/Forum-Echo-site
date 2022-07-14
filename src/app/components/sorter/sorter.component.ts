@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostsComponent } from '../posts/posts.component';
+import {PostService} from "../../http/services/post.service";
 
 @Component({
   selector: 'app-sorter',
@@ -8,15 +9,15 @@ import { PostsComponent } from '../posts/posts.component';
 })
 export class SorterComponent implements OnInit {
 
-  constructor(private postComponent: PostsComponent){}
-  ngOnInit():void { 
+  constructor(private postComponent: PostsComponent, private postService: PostService ){}
+  ngOnInit(): void {
     this.sortPosts();
   }
 
   selection = [true, false];
 
   toggleSelection(i: number) {
-    if(this.selection[i] != true) {
+    if(!this.selection[i]) {
       //set selection to true
       this.selection[i] = true;
       //set all other values to false
@@ -31,9 +32,12 @@ export class SorterComponent implements OnInit {
 
   sortPosts() {
     const sortIndex = this.selection.indexOf(true);
-    const posts = this.postComponent.response;
+      let posts: any;
+      this.postService.getAllPosts().subscribe(result => {
+        posts = result;
+      });
 
-    //enumerate the different sorting methods
+    // enumerate the different sorting methods
     switch(sortIndex){
       case 0:
         posts.response.sort((a: any, b: any) => {
