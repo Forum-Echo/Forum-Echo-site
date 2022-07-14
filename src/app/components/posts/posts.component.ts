@@ -1,4 +1,4 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, Injectable, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { PostService } from "../../http/services/post.service";
 import { AuthService } from "../../http/services/auth.service";
 import { VoteService } from "../../http/services/vote.service";
@@ -9,7 +9,8 @@ import { VoteService } from "../../http/services/vote.service";
   styleUrls: ['./posts.component.scss']
 })
 @Injectable({ providedIn: 'root' })
-export class PostsComponent implements OnInit {
+export class PostsComponent implements OnInit, OnChanges {
+  @Input() sortingOptions: boolean[] = [];
   response: any;
 
   emptyFilledPath = {
@@ -23,9 +24,33 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.postService.getAllPosts().subscribe(result => {
-      this.response = result;
+      this.response = result.reverse();
     });
-    this.postsLoaded = true;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(this.sortingOptions);
+    this.sortPosts();
+  }
+  sortPosts() {
+    const sortIndex = this.sortingOptions.indexOf(true);
+    const posts = this.response;
+    // enumerate the different sorting methods
+    switch(sortIndex){
+      case 0:
+        posts.sort((a: any, b: any) => {
+          return +new Date(a.creation_date) - +new Date(b.creation_date);
+        });
+        posts.reverse();
+        break;
+      case 1:
+        posts.sort((a: any, b: any) => {
+          return a.liked_by.length - a.disliked_by.length - (b.liked_by.length - b.disliked_by.length);
+        });
+        posts.reverse();
+        break;
+    }
+
   }
 
   //Voting functions

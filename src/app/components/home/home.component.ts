@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  public sortOptions: boolean[] = [true, false];
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  getChildData(data: any) {
+    this.sortOptions = [...data];
   }
 
 }
