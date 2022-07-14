@@ -15,4 +15,5 @@
 
 .post-form textarea {
   height: 240px;
+  resize: none;
 }
