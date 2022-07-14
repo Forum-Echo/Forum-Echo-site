@@ -45,7 +45,7 @@ export class PostsComponent implements OnInit {
       this.response[i].liked_by.splice(userIndex, 1);
     }
 
-    this.voteService.upvote(this.response[i]._id, localStorage.getItem('user_id')).subscribe(result => console.log(result));
+    this.voteService.upvote(this.response[i]._id).subscribe(result => console.log(result));
 
     console.log("Likes", this.response[i].liked_by);
     console.log("Disliked", this.response[i].disliked_by);
@@ -67,7 +67,7 @@ export class PostsComponent implements OnInit {
       this.response[i].disliked_by.splice(userIndex, 1);
     }
 
-    this.voteService.downvote(this.response[i]._id, localStorage.getItem('user_id')).subscribe(result => console.log(result));
+    this.voteService.downvote(this.response[i]._id).subscribe(result => console.log(result));
 
     console.log("Likes", this.response[i].liked_by);
     console.log("Disliked", this.response[i].disliked_by);

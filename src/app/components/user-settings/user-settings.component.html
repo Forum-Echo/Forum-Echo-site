@@ -17,9 +17,10 @@
         <mat-checkbox type="checkbox" name="showP" (click)="togglePass()">Show Password</mat-checkbox>
       </label>
       <button mat-raised-button type="submit" class="mt-5" color="primary">Save</button>
-    </form>
-    <form fxLayout="column" fxLayoutAlign="stretch" class="login-form">
-      <button mat-raised-button class="mt-5" color="warn" (click)="logOut()">Logout</button>
+
+      <button mat-raised-button class="mt-5" color="accent" (click)="logOut()">Logout</button>
+
+      <button mat-raised-button class="mt-5" color="warn" (click)="delUser()">Delete User</button>
     </form>
   </mat-card>
 </div>

@@ -18,6 +18,7 @@ export class UserSettingsComponent implements OnInit {
 
   constructor(
     private readonly authService: AuthService,
+    private readonly userService: UserService,
     private readonly edit: UserService,
     private readonly dialog: MatDialog,
     private readonly router: Router
@@ -37,17 +38,12 @@ export class UserSettingsComponent implements OnInit {
 
   editUser() {
     if (this.formGroup.valid) {
-      // I don't fully understand this first line
-      localStorage.setItem('user_id', '62c002d34b96f31dbb8113ec')
       const formValue = this.formGroup.value;
-
-      const user_id = localStorage.getItem('user_id');
 
       const payload = {
         new_username: formValue.username,
         new_password: formValue.new_password,
         old_password: formValue.old_password,
-        user_id: user_id,
       };
       this.edit.edit(payload).subscribe(result => {
         // console.log(result);
@@ -59,6 +55,11 @@ export class UserSettingsComponent implements OnInit {
     this.router.navigate(['/login'])
     return this.authService.logout();
   }
+
+  delUser() {
+    return this.userService.del();
+  }
+
   togglePass(){
     this.isToggleOn = !this.isToggleOn;
     this.passwordType = this.isToggleOn ? "text" : "password";

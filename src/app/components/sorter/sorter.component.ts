@@ -32,26 +32,25 @@ export class SorterComponent implements OnInit {
 
   sortPosts() {
     const sortIndex = this.selection.indexOf(true);
-      let posts: any;
-      this.postService.getAllPosts().subscribe(result => {
-        posts = result;
+      this.postService.getAllPosts().subscribe(posts => {
+        switch(sortIndex){
+          case 0:
+            posts.sort((a: any, b: any) => {
+              return a.liked_by.length - a.disliked_by.length - (b.liked_by.length - b.disliked_by.length);
+            });
+            posts.reverse();
+            break;
+          case 1:
+            posts.sort((a: any, b: any) => {
+              return +new Date(a.creation_date) - +new Date(b.creation_date);
+            });
+            posts.reverse();
+            break;
+        }
       });
 
     // enumerate the different sorting methods
-    switch(sortIndex){
-      case 0:
-        posts.response.sort((a: any, b: any) => {
-          return a.liked_by.length - a.disliked_by.length - (b.liked_by.length - b.disliked_by.length);
-        });
-        posts.reverse();
-        break;
-      case 1:
-        posts.sort((a: any, b: any) => {
-          return +new Date(a.creation_date) - +new Date(b.creation_date);
-        });
-        posts.reverse();
-        break;
-    }
+
 
   }
 
