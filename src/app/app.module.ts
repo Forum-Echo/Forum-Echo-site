@@ -30,6 +30,7 @@ import { HttpModule } from "./http/http.module";
 import { RegisterComponent } from './components/register/register.component';
 import { MatIconModule } from '@angular/material/icon';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { ProceeddialogueComponent } from './components/proceeddialogue/proceeddialogue.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
     EditpostComponent,
     RegisterComponent,
     NotfoundComponent,
+    ProceeddialogueComponent,
   ],
   imports: [
     FormsModule,

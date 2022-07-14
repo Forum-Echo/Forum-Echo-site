@@ -22,7 +22,19 @@ export class PostService {
     return this.http.post(`${baseUrl}post/new`, data);
   }
 
-  editPost(data: any): Observable<any> {
-    return this.http.patch(`${baseUrl}post/edit`, data);
+  editPost(post_id: string, title: string, content: string): Observable<any> {
+    const payload = {
+      post_id: post_id,
+      title: title,
+      content: content,
+    }
+
+    return this.http.patch(`${baseUrl}post/edit`, payload);
+  }
+
+  delPost(post_id: string): Observable<any> {
+    const payload: object = { post_id: post_id };
+
+    return this.http.delete(`${baseUrl}post/del`, payload);
   }
 }

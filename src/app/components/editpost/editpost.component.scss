@@ -3,7 +3,7 @@
 }
 
 .main-div mat-card {
-  height: 500px;
+  height: 550px;
   padding: 0;
   max-width: 500px !important;
   margin: 5px;
@@ -15,4 +15,8 @@
 
 .post-form textarea {
   height: 240px;
+}
+
+button {
+  margin: 5px;
 }

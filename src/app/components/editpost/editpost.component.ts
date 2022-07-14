@@ -25,6 +25,8 @@ export class EditpostComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOldPost();
+
+    this.initForm();
   }
 
   getOldPost(): any {
@@ -37,18 +39,17 @@ export class EditpostComponent implements OnInit {
   }
 
   editPost() {
-    const form = this.formGroup.value;
-    const payload = {
-      post_id: this.post_id,
-      title: form.title,
-      content: form.content,
-    }
-
     if (this.formGroup.valid) {
-      this.postService.editPost(payload);
+      const form = this.formGroup.value;
 
-      this.router.navigate([`/`]);
+      this.postService.editPost(this.post_id, form.title, form.conten).subscribe(result => {
+        this.router.navigate([`/`]);
+      });
     }
+  }
+
+  deletePost() {
+    return this.postService.delPost(this.post_id);
   }
 
   initForm() {
