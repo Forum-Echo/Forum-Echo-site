@@ -36,11 +36,11 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.formGroup.value).subscribe(result => {
         if (result.access_token) {
           localStorage.setItem('token', result.access_token);
-          localStorage.setItem('user_id', '');
+          localStorage.setItem('user_id', result.id);
           this.router.navigate([`/`]);
           return;
         }
-        this.error = 'Wrong credentialsx';
+        this.error = 'Wrong credentials';
       });
     }
   }

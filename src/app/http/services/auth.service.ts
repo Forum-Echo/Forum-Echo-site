@@ -16,7 +16,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
-    localStorage.removeItem('')
+    localStorage.removeItem('user_id')
     localStorage.removeItem('expires_at');
   }
 
