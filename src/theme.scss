@@ -33,10 +33,42 @@ $mat-yellow: (
     A700: $dark-primary-text,
   )
 );
+$mat-indigo: (
+  50: #e4f1fa,
+  100: #bcdcf4,
+  200: #94c6ed,
+  300: #6eb0e5,
+  400: #539fe0,
+  500: #3e90db,
+  600: #3783ce,
+  700: #2f71bc,
+  800: #2961aa,
+  900: #1e448a,
+  A100: #8C9EFF,
+  A200: #536DFE,
+  A400: #3D5AFE,
+  A700: #304FFE,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
+  )
+);
 
 
-$my-primary: mat-palette($mat-indigo, 600);
-$my-accent: mat-palette($mat-yellow, 500);
+$my-primary: mat-palette($mat-indigo, 900);
+$my-accent: mat-palette($mat-yellow, 400);
 $my-warn: mat-palette($mat-red, 500);
 
 $my-theme: mat-light-theme($my-primary, $my-accent, $my-warn);

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostsComponent } from '../posts/posts.component';
 
 @Component({
   selector: 'app-sorter',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SorterComponent implements OnInit {
 
-  constructor( ){}
-  ngOnInit():void { }
-
+  constructor(private postComponent: PostsComponent){}
+  ngOnInit():void { 
+    this.sortPosts();
+  }
 
   selection = [true, false];
 
@@ -24,7 +26,29 @@ export class SorterComponent implements OnInit {
         }
       }
     }
-    
+    this.sortPosts();
+  }
+
+  sortPosts() {
+    const sortIndex = this.selection.indexOf(true);
+    const posts = this.postComponent.response;
+
+    //enumerate the different sorting methods
+    switch(sortIndex){
+      case 0:
+        posts.response.sort((a: any, b: any) => {
+          return a.liked_by.length - a.disliked_by.length - (b.liked_by.length - b.disliked_by.length);
+        });
+        posts.reverse();
+        break;
+      case 1:
+        posts.sort((a: any, b: any) => {
+          return +new Date(a.creation_date) - +new Date(b.creation_date);
+        });
+        posts.reverse();
+        break;
+    }
+
   }
 
 }

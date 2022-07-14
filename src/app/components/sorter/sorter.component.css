@@ -21,6 +21,7 @@
     font-size: 20px;
     justify-content: center;
     border-radius:1em;
+    color: rgba(30, 68, 138, 1);
     background-color: transparent;
     border: 1px solid rgba(30, 68, 138, 0.87);
     height: 2em;
@@ -28,7 +29,7 @@
 }
 .clicked {
     color: white;
-    background-color: #1E448A;
+    background-color: #1e448a;
     border: none;
     font-size: 20px;
     height: 2em;
