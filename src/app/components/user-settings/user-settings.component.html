@@ -14,7 +14,7 @@
         <input matInput placeholder="New Password" type={{passwordType}} formControlName="new_password">
       </mat-form-field>
       <label id="showP">
-        <mat-checkbox type="checkbox" name="showP" (click)="togglePass()">Show Password</mat-checkbox>
+        <mat-checkbox name="showP" (click)="togglePass()">Show Password</mat-checkbox>
       </label>
       <button mat-raised-button type="submit" class="mt-5" color="primary">Save</button>
 
@@ -31,10 +31,12 @@
       <mat-toolbar color="primary">Not Logged in!</mat-toolbar>
       <form fxLayout="column" fxLayoutAlign="stretch"></form>
       <mat-error>
-        You seem to not be logged in! What do you want to do?
+        <mat-icon>warning</mat-icon> You seem to not be logged in! What do you want to do?
       </mat-error>
-      <button mat-raised-button class="mt-5" color="primary" (click)="toLogin()">To Login?</button>
-      <button mat-raised-button class="mt-5" color="accent" (click)="toRegister()">To Register?</button>
+      <form fxLayoutAlign="stretch" fxLayout="column" >
+        <button mat-raised-button class="mt-5" color="primary" (click)="toLogin()">To Login?</button>
+        <button mat-raised-button class="mt-5" color="accent" (click)="toRegister()">To Register?</button>
+      </form>
     </mat-card>
   </div>
 </ng-template>
