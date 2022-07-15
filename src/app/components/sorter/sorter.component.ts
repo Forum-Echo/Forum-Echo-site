@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { PostsComponent } from '../posts/posts.component';
 import {PostService} from "../../http/services/post.service";
 
 @Component({

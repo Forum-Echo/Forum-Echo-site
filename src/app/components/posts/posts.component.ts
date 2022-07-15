@@ -1,4 +1,4 @@
-import { Component, Injectable, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { PostService } from "../../http/services/post.service";
 import { AuthService } from "../../http/services/auth.service";
 import { VoteService } from "../../http/services/vote.service";
@@ -8,17 +8,14 @@ import { VoteService } from "../../http/services/vote.service";
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss']
 })
-@Injectable({ providedIn: 'root' })
 export class PostsComponent implements OnInit, OnChanges {
   @Input() sortingOptions: boolean[] = [];
-  response: any;
+  response: any = [];
 
   emptyFilledPath = {
     empty: "assets/pictures/Arrow.png",
     filled: "assets/pictures/Arrow-filled.png"
   };
-
-  postsLoaded: boolean = false;
 
   constructor(private postService: PostService, private authService: AuthService, private voteService: VoteService) { }
 
@@ -32,6 +29,7 @@ export class PostsComponent implements OnInit, OnChanges {
     console.log(this.sortingOptions);
     this.sortPosts();
   }
+  
   sortPosts() {
     const sortIndex = this.sortingOptions.indexOf(true);
     const posts = this.response;
@@ -115,7 +113,6 @@ export class PostsComponent implements OnInit, OnChanges {
         return (votes/1000000).toFixed(1) + "M";
     }
   }
-
 
   isLoggedIn() {
     return this.authService.isLoggedIn();
