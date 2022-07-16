@@ -2,7 +2,7 @@
   <mat-card *ngFor="let x of response; let i = index" class="proposal">
     <mat-toolbar class="proposal-head" color="primary">
       {{x.title}}
-      <a routerLink="/editpost/{{x._id}}" *ngIf="isAuthor(x.author_id)"><img src="assets/pictures/edit_icon.png" style="cursor: pointer; width:1.5em; height: 1.5em;"></a>
+      <a routerLink="/editpost/{{x._id}}" *ngIf="isAuthor(x.author_id)" id="editLink"><img src="assets/pictures/edit_icon.png" style="width:1.5em; height: 1.5em;"></a>
     </mat-toolbar>
     <p class="policy">
       {{x.content}}

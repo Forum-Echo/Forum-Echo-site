@@ -1,4 +1,7 @@
-<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+<div class="welcoming">
+  <h1 id="welcomeTitle">Welcome to Forum Echo</h1>
+</div>
+<div fxLayoutAlign="center start" class="card-div">
   <mat-card fxFlex="25">
     <mat-toolbar color="primary">Register</mat-toolbar>
     <form fxLayoutAlign="stretch" fxLayout="column" class="post-form" [formGroup]="formGroup" (ngSubmit)="register()">
@@ -29,7 +32,7 @@
         {{error.error}}
       </mat-error>
       <button mat-raised-button type="submit" class="mt-5" color="primary">Register</button>
-      <button mat-raised-button class="mt-5" color="accent" (click)="switchToLogin()">To Login?</button>
+      <button mat-raised-button class="mt-5" color="accent" (click)="switchToLogin()">Already have an account?</button>
     </form>
   </mat-card>
 </div>
