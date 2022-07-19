@@ -1,8 +1,21 @@
-.main-div {
-  margin-top: -70px;
+.welcoming{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: max(min(40px,5%), 5px);
+  margin-bottom: max(min(30px, 2%), 5px);
+}
+#welcomeTitle{
+  font-size: 35px;
+  color: #1E448A;
+  margin-bottom: 0;
+}
+.card-div {
+  top: 0;
+  height: min(598px, 90vh);
 }
 
-.main-div mat-card {
+.card-div mat-card {
   padding: 0;
   max-width: 500px !important;
   margin: 5px;

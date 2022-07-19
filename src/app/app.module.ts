@@ -30,7 +30,7 @@ import { HttpModule } from "./http/http.module";
 import { RegisterComponent } from './components/register/register.component';
 import { MatIconModule } from '@angular/material/icon';
 import { NotfoundComponent } from './components/notfound/notfound.component';
-import { ProceeddialogueComponent } from './components/proceeddialogue/proceeddialogue.component';
+// import { ProceeddialogueComponent } from './components/proceeddialogue/proceeddialogue.component';
 import { MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
@@ -50,7 +50,7 @@ import { MatCheckboxModule} from "@angular/material/checkbox";
     EditpostComponent,
     RegisterComponent,
     NotfoundComponent,
-    ProceeddialogueComponent,
+    // ProceeddialogueComponent,
   ],
   imports: [
     MatCheckboxModule,

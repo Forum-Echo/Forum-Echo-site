@@ -1,4 +1,4 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { PostService } from "../../http/services/post.service";
 import { AuthService } from "../../http/services/auth.service";
 import { VoteService } from "../../http/services/vote.service";
@@ -8,31 +8,47 @@ import { VoteService } from "../../http/services/vote.service";
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss']
 })
-@Injectable({ providedIn: 'root' })
-export class PostsComponent implements OnInit {
-  response: any;
+export class PostsComponent implements OnInit, OnChanges {
+  @Input() sortingOptions: boolean[] = [];
+  response: any = [];
 
   emptyFilledPath = {
     empty: "assets/pictures/Arrow.png",
     filled: "assets/pictures/Arrow-filled.png"
   };
 
-  postsLoaded: boolean = false;
-  error: any;
-
   constructor(private postService: PostService, private authService: AuthService, private voteService: VoteService) { }
 
   ngOnInit(): void {
-    this.initPosts();
+    this.postService.getAllPosts().subscribe(result => {
+      this.response = result.reverse();
+    });
   }
 
-  initPosts(): void {
-    this.postService.getAllPosts().subscribe(result => {
-      this.response = result;
-      this.postsLoaded = true;
-      return;
-    });
-    this.error = 'No Connection to Backend!';
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(this.sortingOptions);
+    this.sortPosts();
+  }
+  
+  sortPosts() {
+    const sortIndex = this.sortingOptions.indexOf(true);
+    const posts = this.response;
+    // enumerate the different sorting methods
+    switch(sortIndex){
+      case 0:
+        posts.sort((a: any, b: any) => {
+          return +new Date(a.creation_date) - +new Date(b.creation_date);
+        });
+        posts.reverse();
+        break;
+      case 1:
+        posts.sort((a: any, b: any) => {
+          return a.liked_by.length - a.disliked_by.length - (b.liked_by.length - b.disliked_by.length);
+        });
+        posts.reverse();
+        break;
+    }
+
   }
 
   //Voting functions
@@ -97,7 +113,6 @@ export class PostsComponent implements OnInit {
         return (votes/1000000).toFixed(1) + "M";
     }
   }
-
 
   isLoggedIn() {
     return this.authService.isLoggedIn();

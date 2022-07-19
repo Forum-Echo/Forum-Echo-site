@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { PostsComponent } from '../posts/posts.component';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {PostService} from "../../http/services/post.service";
 
 @Component({
@@ -9,14 +8,16 @@ import {PostService} from "../../http/services/post.service";
 })
 export class SorterComponent implements OnInit {
 
-  constructor(private postComponent: PostsComponent, private postService: PostService ){}
-  ngOnInit(): void {
-    this.sortPosts();
-  }
+  @Output() outputSortingOptions = new EventEmitter<Array<boolean>>();
 
   selection = [true, false];
 
+  constructor(private postService: PostService ){}
+  ngOnInit(): void {
+    // this.outputSortingOptions.emit(this.selection);
+  }
   toggleSelection(i: number) {
+
     if(!this.selection[i]) {
       //set selection to true
       this.selection[i] = true;
@@ -27,31 +28,7 @@ export class SorterComponent implements OnInit {
         }
       }
     }
-    this.sortPosts();
-  }
-
-  sortPosts() {
-    const sortIndex = this.selection.indexOf(true);
-      this.postService.getAllPosts().subscribe(posts => {
-        switch(sortIndex){
-          case 0:
-            posts.sort((a: any, b: any) => {
-              return a.liked_by.length - a.disliked_by.length - (b.liked_by.length - b.disliked_by.length);
-            });
-            posts.reverse();
-            break;
-          case 1:
-            posts.sort((a: any, b: any) => {
-              return +new Date(a.creation_date) - +new Date(b.creation_date);
-            });
-            posts.reverse();
-            break;
-        }
-      });
-
-    // enumerate the different sorting methods
-
-
+    this.outputSortingOptions.emit(this.selection);
   }
 
 }
