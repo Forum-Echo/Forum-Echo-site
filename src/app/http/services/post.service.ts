@@ -11,11 +11,11 @@ export class PostService {
   constructor(private readonly http: HttpClient) {}
 
   getOnePost(post_id: string | null): Observable<any> {
-    return this.http.get(`${baseUrl}post/${post_id}`);
+    return this.http.get(`${baseUrl}post/id/${post_id}`);
   }
 
   getAllPosts():Observable<any>  {
-    return this.http.get(`${baseUrl}post/false`);
+    return this.http.get(`${baseUrl}post/all`);
   }
 
   newPost(data: any): Observable<any> {
@@ -32,9 +32,14 @@ export class PostService {
     return this.http.patch(`${baseUrl}post/edit`, payload);
   }
 
-  delPost(post_id: string): Observable<any> {
+  delPost(post_id: string): any {
     const payload: object = { post_id: post_id };
+    let res;
 
-    return this.http.delete(`${baseUrl}post/del`, payload);
+    this.http.delete(`${baseUrl}post/del`, payload).subscribe(result => {
+      res = result;
+    });
+
+    return res;
   }
 }

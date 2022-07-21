@@ -20,16 +20,21 @@ export class PostsComponent implements OnInit, OnChanges {
   constructor(private postService: PostService, private authService: AuthService, private voteService: VoteService) { }
 
   ngOnInit(): void {
+    this.initPosts();
+  }
+
+  initPosts(): void {
     this.postService.getAllPosts().subscribe(result => {
       this.response = result.reverse();
-    });
+      console.log(this.response)
+    })
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(this.sortingOptions);
     this.sortPosts();
   }
-  
+
   sortPosts() {
     const sortIndex = this.sortingOptions.indexOf(true);
     const posts = this.response;
@@ -37,13 +42,13 @@ export class PostsComponent implements OnInit, OnChanges {
     switch(sortIndex){
       case 0:
         posts.sort((a: any, b: any) => {
-          return +new Date(a.creation_date) - +new Date(b.creation_date);
+          return +new Date(a.created) - +new Date(b.created);
         });
         posts.reverse();
         break;
       case 1:
         posts.sort((a: any, b: any) => {
-          return a.liked_by.length - a.disliked_by.length - (b.liked_by.length - b.disliked_by.length);
+          return a.likedBy.length - a.dislikedBy.length - (b.likedBy.length - b.dislikedBy.length);
         });
         posts.reverse();
         break;
@@ -53,41 +58,41 @@ export class PostsComponent implements OnInit, OnChanges {
 
   //Voting functions
   voteUp = (i: number) => {
-    if(this.response[i].disliked_by.includes(localStorage.getItem('user_id'))){
+    if(this.response[i].dislikedBy.includes(localStorage.getItem('user_id'))){
       //remove element
-      const userIndex = this.response[i].disliked_by.indexOf(localStorage.getItem('user_id'));
-      this.response[i].disliked_by.splice(userIndex, 1);
+      const userIndex = this.response[i].dislikedBy.indexOf(localStorage.getItem('user_id'));
+      this.response[i].dislikedBy.splice(userIndex, 1);
     }
-    if(!this.response[i].liked_by.includes(localStorage.getItem('user_id'))){
+    if(!this.response[i].likedBy.includes(localStorage.getItem('user_id'))){
       // append element
-      this.response[i].liked_by.push(localStorage.getItem('user_id'));
+      this.response[i].likedBy.push(localStorage.getItem('user_id'));
     }
     else {
       //remove element
-      const userIndex = this.response[i].liked_by.indexOf(localStorage.getItem('user_id'));
-      this.response[i].liked_by.splice(userIndex, 1);
+      const userIndex = this.response[i].likedBy.indexOf(localStorage.getItem('user_id'));
+      this.response[i].likedBy.splice(userIndex, 1);
     }
 
     this.voteService.upvote(this.response[i]._id).subscribe(result => console.log(result));
 
-    console.log("Likes", this.response[i].liked_by);
-    console.log("Disliked", this.response[i].disliked_by);
+    console.log("Likes", this.response[i].likedBy);
+    console.log("Disliked", this.response[i].dislikedBy);
   }
 
   voteDown = (i: number) => {
-    if(this.response[i].liked_by.includes(localStorage.getItem('user_id'))){
+    if(this.response[i].likedBy.includes(localStorage.getItem('user_id'))){
       //remove element
-      const userIndex = this.response[i].liked_by.indexOf(localStorage.getItem('user_id'));
-      this.response[i].liked_by.splice(userIndex, 1);
+      const userIndex = this.response[i].likedBy.indexOf(localStorage.getItem('user_id'));
+      this.response[i].likedBy.splice(userIndex, 1);
     }
-    if(!this.response[i].disliked_by.includes(localStorage.getItem('user_id'))){
+    if(!this.response[i].dislikedBy.includes(localStorage.getItem('user_id'))){
       // append element
-      this.response[i].disliked_by.push(localStorage.getItem('user_id'));
+      this.response[i].dislikedBy.push(localStorage.getItem('user_id'));
     }
     else {
       //remove element
-      const userIndex = this.response[i].disliked_by.indexOf(localStorage.getItem('user_id'));
-      this.response[i].disliked_by.splice(userIndex, 1);
+      const userIndex = this.response[i].dislikedBy.indexOf(localStorage.getItem('user_id'));
+      this.response[i].dislikedBy.splice(userIndex, 1);
     }
 
     this.voteService.downvote(this.response[i]._id).subscribe(result => console.log(result));
@@ -97,12 +102,12 @@ export class PostsComponent implements OnInit, OnChanges {
   }
 
   // Display vote types
-  getUpvote = (i: number) => this.response[i].liked_by.includes(localStorage.getItem('user_id')) ? 'filled' : 'empty';
-  getDownvote = (i: number) => this.response[i].disliked_by.includes(localStorage.getItem('user_id')) ? 'filled': 'empty';
+  getUpvote = (i: number) => this.response[i].likedBy.includes(localStorage.getItem('user_id')) ? 'filled' : 'empty';
+  getDownvote = (i: number) => this.response[i].dislikedBy.includes(localStorage.getItem('user_id')) ? 'filled': 'empty';
 
   // Display large numbers of votes in a nice manner
   displayVotes(post: any){
-    const votes = post.liked_by.length- post.disliked_by.length;
+    const votes = post.likedBy.length- post.dislikedBy.length;
     if(votes < 1000){
       return votes;
     }
