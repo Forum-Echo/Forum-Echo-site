@@ -38,10 +38,9 @@ export class EditpostComponent implements OnInit {
       this.initForm();
       return result;
     });
-    this.error = 'No Connection to Backend!';
   }
 
-  editPost() {
+  editPost(): void {
     if (this.formGroup.valid) {
       const form = this.formGroup.value;
 
@@ -51,8 +50,12 @@ export class EditpostComponent implements OnInit {
     }
   }
 
-  deletePost() {
-    return this.postService.delPost(this.post_id);
+  deletePost(): void {
+    this.postService.delPost(this.post_id).subscribe(result => {
+      this.router.navigate(['/']).then(
+        window.location.reload
+      );
+    });
   }
 
   initForm() {
@@ -61,5 +64,4 @@ export class EditpostComponent implements OnInit {
       content: new FormControl(this.content, [Validators.required]),
     });
   }
-
 }
