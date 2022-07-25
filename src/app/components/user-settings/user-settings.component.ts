@@ -16,6 +16,9 @@ export class UserSettingsComponent implements OnInit {
   isToggleOn = false;
   passwordType = "password";
 
+  username: string = '';
+  oldPassword: string = '';
+
   constructor(
     private readonly authService: AuthService,
     private readonly userService: UserService,
@@ -25,12 +28,21 @@ export class UserSettingsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getOldUser();
     this.initForm();
+  }
+
+  getOldUser(): void {
+    this.userService.getUser().subscribe(result => {
+      this.username = result.username;
+
+      this.initForm();
+    });
   }
 
   initForm() {
     this.formGroup = new FormGroup({
-      username: new FormControl('', [Validators.required]),
+      username: new FormControl(this.username, [Validators.required]),
       old_password: new FormControl('', [Validators.required]),
       new_password: new FormControl('', [Validators.required]),
     });
@@ -45,8 +57,7 @@ export class UserSettingsComponent implements OnInit {
         new_password: formValue.new_password,
         old_password: formValue.old_password,
       };
-      this.edit.edit(payload).subscribe(result => {
-        // console.log(result);
+      this.edit.editUser(payload).subscribe(result => {
       })
     }
   }
@@ -57,7 +68,7 @@ export class UserSettingsComponent implements OnInit {
   }
 
   delUser() {
-    return this.userService.del();
+    return this.userService.delUser();
   }
 
   togglePass(){

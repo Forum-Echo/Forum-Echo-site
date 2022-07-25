@@ -14,11 +14,15 @@ export class UserService {
     return this.http.post(`${baseUrl}user/register`, data);
   }
 
-  edit(data: any):Observable<any> {
+  editUser(data: any):Observable<any> {
     return this.http.patch(`${baseUrl}user/edit`, data)
   }
 
-  del(): Observable<any> {
+  delUser(): Observable<any> {
     return this.http.delete(`${baseUrl}user/del`)
+  }
+
+  getUser(): Observable<any> {
+    return this.http.get(`${baseUrl}user/get`)
   }
 }
