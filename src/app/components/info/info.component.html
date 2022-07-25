@@ -1,4 +1,11 @@
-<div class="info">
-  <img src="/assets/pictures/info_icon.png" id="infoIcon">
+<div *ngIf="loggedIn(); else notLoggedIn" class="info">
+  <mat-icon>info</mat-icon>
   Just click the plus icon and add your policy idea!
 </div>
+
+<ng-template #notLoggedIn>
+  <div class="info">
+    <mat-icon>info</mat-icon>
+    Login or Signup to get the best experience!
+  </div>
+</ng-template>

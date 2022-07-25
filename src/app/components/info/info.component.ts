@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class InfoComponent implements OnInit {
 
   constructor() { }
-
   ngOnInit(): void {
+  }
+
+  loggedIn(): boolean {
+    return ( typeof localStorage.getItem('token') === "string");
   }
 
 }
