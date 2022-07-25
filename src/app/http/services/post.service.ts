@@ -32,7 +32,7 @@ export class PostService {
     return this.http.patch(`${baseUrl}post/edit`, payload);
   }
 
-  delPost(post_id: string): Observable<any> {
+  delPost(post_id: string): Observable<Object> {
     return this.http.delete(`${baseUrl}post/del/${post_id}`);
   }
 }
