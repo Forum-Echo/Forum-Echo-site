@@ -32,14 +32,7 @@ export class PostService {
     return this.http.patch(`${baseUrl}post/edit`, payload);
   }
 
-  delPost(post_id: string): any {
-    const payload: object = { post_id: post_id };
-    let res;
-
-    this.http.delete(`${baseUrl}post/del`, payload).subscribe(result => {
-      res = result;
-    });
-
-    return res;
+  delPost(post_id: string): Observable<any> {
+    return this.http.delete(`${baseUrl}post/del/${post_id}`);
   }
 }
