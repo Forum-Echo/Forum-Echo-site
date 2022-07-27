@@ -8,7 +8,7 @@ import { UserService } from "../../http/services/user.service";
 @Component({
   selector: 'app-user-settings',
   templateUrl: './user-settings.component.html',
-  styleUrls: ['./user-settings.component.scss']
+  styleUrls: ['../../component-styles/errors.scss', './user-settings.component.scss']
 })
 export class UserSettingsComponent implements OnInit {
 
