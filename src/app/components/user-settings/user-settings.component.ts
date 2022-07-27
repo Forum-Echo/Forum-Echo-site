@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../../http/services/auth.service";
 import { Router } from "@angular/router";
 import { UserService } from "../../http/services/user.service";
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -18,32 +18,31 @@ export class UserSettingsComponent implements OnInit {
   passwordType = "password";
 
   username: string = '';
-  oldPassword: string = '';
 
   constructor(
     private readonly authService: AuthService,
     private readonly userService: UserService,
     private readonly edit: UserService,
-    private _snackBar: MatSnackBar,
+    private snackBar: MatSnackBar,
     private readonly router: Router
   ) { }
 
   ngOnInit(): void {
     this.getOldUser();
-    this.initForm();
+    this.initForm('');
   }
 
   getOldUser(): void {
     this.userService.getUser().subscribe(result => {
       this.username = result.username;
 
-      this.initForm();
+      this.initForm(result.username);
     });
   }
 
-  initForm() {
+  initForm(username: string) {
     this.formGroup = new FormGroup({
-      username: new FormControl(this.username, [Validators.required]),
+      username: new FormControl(username, [Validators.required]),
       old_password: new FormControl('', [Validators.required]),
       new_password: new FormControl('', [Validators.required]),
     });
@@ -59,12 +58,16 @@ export class UserSettingsComponent implements OnInit {
         old_password: formValue.old_password,
       };
       this.edit.editUser(payload).subscribe(result => {
-      })
+        this.snackBar.open('Saved!');
+      });
     }
   }
 
   logOut() {
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
+    this.snackBar.open('You successfully logged out!', '', {
+      duration: 3000
+    });
     return this.authService.logout();
   }
 
@@ -73,10 +76,12 @@ export class UserSettingsComponent implements OnInit {
   }
 
   openSnackBar() {
-    this._snackBar.open("We sent you an email");
+    this.snackBar.open('We sent you an email!', '', {
+      duration: 3000
+    });
   }
 
-  togglePass(){
+  togglePass() {
     this.isToggleOn = !this.isToggleOn;
     this.passwordType = this.isToggleOn ? "text" : "password";
   }

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../../http/services/auth.service";
 import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,12 @@ export class LoginComponent implements OnInit {
 
   error: any;
 
-  constructor(private authService: AuthService, public dialog: MatDialog, private router:Router) { }
+  constructor(
+    private authService: AuthService,
+    private dialog: MatDialog,
+    private router: Router,
+    private snackBar: MatSnackBar,
+  ) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -41,9 +47,10 @@ export class LoginComponent implements OnInit {
         } else {
           this.error = 'Wrong credentials';
         }
-        return;
+        this.snackBar.open('You successfully logged in!', '', {
+          duration: 3000
+        });
       });
-      this.error = 'No Connection to Backend!'
     }
   }
 

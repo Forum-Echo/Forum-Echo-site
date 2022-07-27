@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { PostService } from "../../http/services/post.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-editpost',
@@ -19,24 +20,21 @@ export class EditpostComponent implements OnInit {
   constructor(
     private readonly router: Router,
     private route: ActivatedRoute,
-    private readonly postService: PostService
+    private postService: PostService,
+    private snackBar: MatSnackBar,
   ) { }
 
   post_id: string = this.router.url.slice(10);
 
   ngOnInit(): void {
-    this.getOldPost();
+    this.initForm('', '');
 
-    this.initForm();
+    this.getOldPost();
   }
 
-  getOldPost(): any {
+  getOldPost(): void {
     this.postService.getOnePost(this.post_id).subscribe(result => {
-      this.title = result.title;
-      this.content = result.content;
-
-      this.initForm();
-      return result;
+      this.initForm(result.title, result.content);
     });
   }
 
@@ -45,6 +43,9 @@ export class EditpostComponent implements OnInit {
       const form = this.formGroup.value;
 
       this.postService.editPost(this.post_id, form.title, form.conten).subscribe(result => {
+        this.snackBar.open('Post saved!', '', {
+          duration: 3000
+        })
         this.router.navigate([`/`]);
       });
     }
@@ -52,16 +53,17 @@ export class EditpostComponent implements OnInit {
 
   deletePost(): void {
     this.postService.delPost(this.post_id).subscribe(result => {
-      this.router.navigate(['/']).then(
-        window.location.reload
-      );
+      this.snackBar.open('Post deleted!', '', {
+        duration: 3000
+      })
+      this.router.navigate(['/']);
     });
   }
 
-  initForm() {
+  initForm(title: string, content: string) {
     this.formGroup = new FormGroup({
-      title: new FormControl(this.title, [Validators.required]),
-      content: new FormControl(this.content, [Validators.required]),
+      title: new FormControl(title, [Validators.required]),
+      content: new FormControl(content, [Validators.required]),
     });
   }
 }

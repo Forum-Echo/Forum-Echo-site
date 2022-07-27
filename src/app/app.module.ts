@@ -29,6 +29,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { InfiniteScrollModule } from "ngx-infinite-scroll";
     MatOptionModule,
     HttpModule,
     MatIconModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
