@@ -1,5 +1,6 @@
+<cdk-virtual-scroll-viewport itemSize="2">
 <div class="content" #connected>
-  <mat-card *ngFor="let x of response; let i = index" class="proposal">
+  <mat-card *cdkVirtualFor="let x of response; let i = index" class="proposal">
     <mat-toolbar class="proposal-head" color="primary">
       {{x.title}}
       <a routerLink="/editpost/{{x._id}}" *ngIf="isAuthor(x.authorId)" id="editLink"><img src="assets/pictures/edit_icon.png" style="width:1.5em; height: 1.5em;"></a>
@@ -27,3 +28,4 @@
     </ng-template>
   </mat-card>
 </div>
+</cdk-virtual-scroll-viewport>

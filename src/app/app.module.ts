@@ -32,6 +32,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 // import { ProceeddialogueComponent } from './components/proceeddialogue/proceeddialogue.component';
 import { MatCheckboxModule} from "@angular/material/checkbox";
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { MatCheckboxModule} from "@angular/material/checkbox";
     MatOptionModule,
     HttpModule,
     MatIconModule,
+    ScrollingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
