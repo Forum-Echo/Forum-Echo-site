@@ -1,5 +1,12 @@
-<nav class="topBar">
+<mat-toolbar class="topBar" color="primary">
+  <a *ngIf="isLoggedIn(); else elseBlock" routerLink="user"><span class="profileDot"><img src="assets/pictures/profile_icon.png" alt="profile_icon"></span></a>
+  <ng-template #elseBlock><a routerLink="login"><span class="profileDot"><img src="assets/pictures/profile_icon.png" alt="profile_icon"></span></a></ng-template>
+
+  <div class="title">Forum Echo</div>
+
   <a routerLink="/">
-    <img alt="EU flag" src="assets/pictures/EU-flag.png" id="EUFlag">
+    <img alt="EU-flag" src="assets/pictures/EU-flag.png" id="EUFlag">
   </a>
-</nav>
+  <a routerLink="newpost"><img alt="newpost" id="add" src="assets/pictures/add_icon.png"/></a>
+
+</mat-toolbar>

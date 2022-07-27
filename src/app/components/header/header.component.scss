@@ -1,5 +1,4 @@
 .topBar {
-  background: #1E448A;
   height: 70px;
   display: flex;
   justify-content: center;
@@ -13,7 +12,7 @@
   top: 10%;
 }
 
-profileDot {
+.profileDot {
   border: 1px solid #FDCB0B;
   border-radius: 50%;
   color: #FFFFFF;
@@ -25,7 +24,21 @@ profileDot {
   display: flex;
   align-items: center;
   justify-content:center;
-  left: 2%;
+  left: 1%;
   top: 10px;
   cursor: pointer;
+}
+
+#add {
+  color: #FDCB0B;
+  position: absolute;
+  font-size: 50px;
+  right: 1%;
+  top: 10px;
+  cursor: pointer;
+}
+
+.title {
+  position: absolute;
+  left: 4.5%;
 }

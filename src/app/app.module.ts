@@ -22,16 +22,12 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatOptionModule } from "@angular/material/core";
 import { NewPostComponent } from "./components/newpost/newpost.component";
 import { UserSettingsComponent } from "./components/user-settings/user-settings.component";
-import { HomeHeaderComponent } from './components/home-header/home-header.component';
-import { ProfileIconComponent } from './components/profile-icon/profile-icon.component';
-import { AddIconComponent } from './components/add-icon/add-icon.component';
 import { EditpostComponent } from './components/editpost/editpost.component';
 import { HttpModule } from "./http/http.module";
 import { RegisterComponent } from './components/register/register.component';
 import { MatIconModule } from '@angular/material/icon';
 import { NotfoundComponent } from './components/notfound/notfound.component';
-// import { ProceeddialogueComponent } from './components/proceeddialogue/proceeddialogue.component';
-import { MatCheckboxModule} from "@angular/material/checkbox";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
 
 @NgModule({
@@ -45,13 +41,9 @@ import { InfiniteScrollModule } from "ngx-infinite-scroll";
     SorterComponent,
     NewPostComponent,
     UserSettingsComponent,
-    HomeHeaderComponent,
-    ProfileIconComponent,
-    AddIconComponent,
     EditpostComponent,
     RegisterComponent,
     NotfoundComponent,
-    // ProceeddialogueComponent,
   ],
   imports: [
     MatCheckboxModule,
@@ -73,7 +65,7 @@ import { InfiniteScrollModule } from "ngx-infinite-scroll";
     MatOptionModule,
     HttpModule,
     MatIconModule,
-    InfiniteScrollModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]
