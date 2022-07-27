@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../../http/services/auth.service";
-import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { UserService } from "../../http/services/user.service";
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-user-settings',
   templateUrl: './user-settings.component.html',
-  styleUrls: ['../../component-styles/errors.scss', './user-settings.component.scss']
+  styleUrls: ['../../component-styles/errors.scss', '../../component-styles/data-request.scss', './user-settings.component.scss']
 })
 export class UserSettingsComponent implements OnInit {
 
@@ -23,7 +24,7 @@ export class UserSettingsComponent implements OnInit {
     private readonly authService: AuthService,
     private readonly userService: UserService,
     private readonly edit: UserService,
-    private readonly dialog: MatDialog,
+    private _snackBar: MatSnackBar,
     private readonly router: Router
   ) { }
 
@@ -69,6 +70,10 @@ export class UserSettingsComponent implements OnInit {
 
   delUser() {
     return this.userService.delUser();
+  }
+
+  openSnackBar() {
+    this._snackBar.open("We sent you an email");
   }
 
   togglePass(){
