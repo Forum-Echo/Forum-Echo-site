@@ -1,11 +1,11 @@
 <div *ngIf="loggedIn(); else notLoggedIn" class="info">
-  <mat-icon>info</mat-icon>
+  <mat-icon id="infoIcon">info_outline</mat-icon>
   Just click the plus icon and add your policy idea!
 </div>
 
 <ng-template #notLoggedIn>
   <div class="info">
-    <mat-icon>info</mat-icon>
-    Login or Signup to get the best experience!
+    <mat-icon id="infoIcon">info_outline</mat-icon>
+    Login or sign up for the best experience!
   </div>
 </ng-template>

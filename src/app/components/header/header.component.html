@@ -5,8 +5,8 @@
   <div class="title">Forum Echo</div>
 
   <a routerLink="/">
-    <img alt="EU-flag" src="assets/pictures/EU-flag.png" id="EUFlag">
+    <img alt="FE-logo" src="assets/pictures/FE-logo.png" id="EUFlag">
   </a>
-  <a routerLink="newpost"><img alt="newpost" id="add" src="assets/pictures/add_icon.png"/></a>
+  <a routerLink="newpost"><img alt="newpost" id="add" src="assets/pictures/add_icon.png" *ngIf="showAdd()"/></a>
 
 </mat-toolbar>
