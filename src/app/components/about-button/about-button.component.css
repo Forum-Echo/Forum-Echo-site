@@ -1,0 +1,37 @@
+.about-tab {
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-button {
+    color: #ffffff;
+    background-color: #1E448A;
+    border: 0;
+    font-size: 20px;
+    padding: 0.5em;
+    border-bottom-left-radius: 0.33em;
+    border-bottom-right-radius: 0.33em;
+    cursor: pointer;
+}
+.expand-tab {
+    background-color: #1E448A;
+    padding: 0 0.5em 0.2em;
+    border-bottom-left-radius: 0.33em;
+    border-bottom-right-radius: 0.33em;
+    width: 20px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    cursor: pointer;
+}
+#expand-icon {
+    width: 20px;
+}
+.clicked {
+    transform: scaleY(-1);
+}

@@ -1,1 +1,6 @@
-<p>about-button works!</p>
+<div class="about-tab">
+    <button class="about-button" routerLink="about" *ngIf="showAbout">About us</button>
+    <span class="expand-tab">
+        <img src="assets/pictures/expand-icon.png" alt="Expand icon" id="expand-icon" (click)="toggleAbout()" [ngClass]="{'clicked': showAbout}">
+    </span>
+</div>

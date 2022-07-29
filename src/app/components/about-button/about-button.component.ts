@@ -5,11 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './about-button.component.html',
   styleUrls: ['./about-button.component.css']
 })
-export class AboutButtonComponent implements OnInit {
+export class AboutButtonComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  showAbout = false;
+  toggleAbout() {
+    this.showAbout = !this.showAbout;
   }
 
 }

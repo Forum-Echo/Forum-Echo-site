@@ -31,6 +31,7 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { AboutButtonComponent } from './components/about-button/about-button.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { AboutButtonComponent } from './components/about-button/about-button.com
     RegisterComponent,
     NotfoundComponent,
     AboutButtonComponent,
+    AboutComponent,
   ],
   imports: [
     MatCheckboxModule,
