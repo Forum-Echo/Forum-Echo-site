@@ -1,2 +1,4 @@
-<app-sorter (outputSortingOptions)="getChildData($event)"></app-sorter>
-<app-posts [sortingOptions]="sortOptions"></app-posts>
+<div class="home-layout">
+<app-sorter (outputSortingOptions)="getChildData($event)" class="sorting"></app-sorter>
+<app-posts [sortingOptions]="sortOptions" class="main-content"></app-posts>
+</div>

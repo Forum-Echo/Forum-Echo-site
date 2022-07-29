@@ -1,0 +1,15 @@
+.sorting {
+    grid-area: menu;
+}
+.about {
+    grid-area: about;
+}
+.main-content {
+    grid-area: main;
+}
+.home-layout {
+    display: grid;
+    grid-template-areas:
+    'menu about about about'
+    'menu main main main';
+}

@@ -39,11 +39,8 @@
     width: 1em;
     margin-left: 0.5em;
 }
-
-#donateButton {
-  height: 2.5em;
-  margin: 0.5em 1em;
-  width: 50vw;
-  max-width: 200px;
-  min-width: 110px;
+#about {
+  border-style: none none solid solid;
+  border-radius: 0;
+  border-bottom-left-radius:1em;
 }
