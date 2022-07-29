@@ -1,10 +1,12 @@
 .content {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   padding-bottom: 3em !important;
   border-radius: 4px!important;
+  position: absolute;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 0);
 }
 
 .proposal {
