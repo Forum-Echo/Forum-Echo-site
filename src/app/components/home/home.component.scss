@@ -13,6 +13,7 @@
 
 .home-layout {
     display: grid;
+    grid-template-rows: 3fr 1fr;
     grid-template-areas:
         'menu about about about'
         'menu main main main';  

@@ -1,0 +1,44 @@
+.about-text {
+    margin: 1.5em;
+}
+.about-text > h1 {
+    color: #1E448A;
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+.about-text > h2 {
+    margin-bottom: 0.5em;
+}
+.about-text > p {
+    margin-bottom: 1em;
+}
+.donate-buttons {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.5em 1.5em;
+}
+#buymeacoffee-button {
+    margin-bottom: 7px;
+}
+#GoFundMe-link {
+    height: 50px;
+    width: 235px;
+    border: 0;
+}
+#GoFundMe-button {
+    border: 0; 
+    background-color: #00ba5e; 
+    border-radius: 10px; 
+    width: 235px;
+    height: 50px;
+    cursor: pointer;
+}
+.privacy-and-terms {
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 0);
+}
+.statement-link {
+    color:#696969;
+}

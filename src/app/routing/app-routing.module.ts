@@ -10,6 +10,8 @@ import { EditpostComponent } from '../components/editpost/editpost.component';
 import { RegisterComponent } from '../components/register/register.component';
 import {NotfoundComponent} from "../components/notfound/notfound.component";
 import { AboutComponent } from '../components/about/about.component';
+import { PrivacyComponent } from '../components/privacy/privacy.component';
+import { TermsComponent } from '../components/terms/terms.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,6 +21,8 @@ export const routes: Routes = [
   { path: 'newpost', component: NewPostComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'about', component: AboutComponent},
+  { path: 'privacy', component: PrivacyComponent},
+  { path: 'terms', component: TermsComponent},
   { path: '**', component: NotfoundComponent }
 ];
 

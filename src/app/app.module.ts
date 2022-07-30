@@ -32,6 +32,8 @@ import { InfiniteScrollModule } from "ngx-infinite-scroll";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { AboutButtonComponent } from './components/about-button/about-button.component';
 import { AboutComponent } from './components/about/about.component';
+import { PrivacyComponent } from './components/privacy/privacy.component';
+import { TermsComponent } from './components/terms/terms.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { AboutComponent } from './components/about/about.component';
     NotfoundComponent,
     AboutButtonComponent,
     AboutComponent,
+    PrivacyComponent,
+    TermsComponent,
   ],
   imports: [
     MatCheckboxModule,

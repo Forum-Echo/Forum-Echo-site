@@ -1,6 +1,10 @@
-<div class="about-tab">
-    <button class="about-button" routerLink="about" *ngIf="showAbout">About us</button>
+<div class="about-tab" tabindex="2" (blur)="toggleAbout()">
+    <a  routerLink="about" ><button class="about-button" *ngIf="showAbout">About us</button></a>
     <span class="expand-tab">
-        <img src="assets/pictures/expand-icon.png" alt="Expand icon" id="expand-icon" (click)="toggleAbout()" [ngClass]="{'clicked': showAbout}">
+        <img src="assets/pictures/expand-icon.png" alt="Expand icon" id="expand-icon" tabindex="1" (click)="toggleAbout()" [ngClass]="{'clicked': showAbout}">
     </span>
+    <!-- <button class="about-button" routerLink="about">About us</button>
+    <span class="expand-tab">
+        <img src="assets/pictures/expand-icon.png" alt="Expand icon" id="expand-icon" [ngClass]="{'clicked': showAbout}">
+    </span> -->
 </div>
