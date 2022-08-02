@@ -1,28 +1,34 @@
 <div class="content" #connected infinite-scroll [infiniteScrollDistance]="3">
-  <mat-card class="proposal" *ngFor="let x of response; let i = index">
+  <mat-card class="proposal" *ngFor="let post of response; let i = index">
     <mat-toolbar class="proposal-head" color="primary">
-      {{x.title}}
-      <a routerLink="/editpost/{{x._id}}" *ngIf="isAuthor(x.authorId)" id="editLink"><img src="assets/pictures/edit_icon.png" style="width:1.5em; height: 1.5em;" alt="edit_icon"></a>
+      {{post.title}}
+      <a routerLink="/editpost/{{post._id}}" *ngIf="isAuthor(post.authorId)" id="editLink"><img src="assets/pictures/edit_icon.png" style="width:1.5em; height: 1.5em;" alt="edit_icon"></a>
     </mat-toolbar>
     <p class="policy">
-      {{x.content}}
+      {{post.content}}
     </p>
     <div class="metaData" *ngIf="isLoggedIn(); else notLoggedIn" >
       <div class="upDown">
-      <img alt="upvote" src="{{emptyFilledPath[getUpvote(i)]}}" class="upVote" width="25" height="25" (click)="voteUp(i)" style="cursor: pointer; padding: 5px">
-      {{displayVotes(x)}}
-      <img alt="downvote" src="{{emptyFilledPath[getDownvote(i)]}}" class="downVote" width="25" height="25" (click)="voteDown(i)" style="transform: scaleY(-1); cursor: pointer; padding: 3px">
+        <img alt="upvote" src="{{emptyFilledPath[getUpvote(i)]}}" class="upVote" width="25" height="25" (click)="voteUp(i)" style="cursor: pointer; padding: 5px">
+        {{displayVotes(post)}}
+        <img alt="downvote" src="{{emptyFilledPath[getDownvote(i)]}}" class="downVote" width="25" height="25" (click)="voteDown(i)" style="transform: scaleY(-1); cursor: pointer; padding: 3px">
       </div>
-      <div class="date">{{x.created.substring(0,10).split('-').reverse().join('/')}}</div>
+      <div class="username">
+        <!--{{getUser('62d5ccd3d60b05eb1951f3a4')}}-->
+        {{post.authorId}}
+      </div>
+      <div class="date">
+        {{post.created.substring(0,10).split('-').reverse().join('/')}}
+      </div>
   </div>
     <ng-template #notLoggedIn>
         <div class="metaData">
           <div class="upDown">
             <img alt="upvote" src="{{emptyFilledPath[getUpvote(i)]}}" class="upVote" width="25" height="25" style="cursor: pointer; padding: 5px">
-            {{displayVotes(x)}}
+            {{displayVotes(post)}}
             <img alt="downvote" src="{{emptyFilledPath[getDownvote(i)]}}" class="downVote" width="25" height="25" style="transform: scaleY(-1); cursor: pointer; padding: 3px">
           </div>
-          <div class="date">{{x.created.substring(0,10).split('-').reverse().join('/')}}</div>
+          <div class="date">{{post.created.substring(0,10).split('-').reverse().join('/')}}</div>
         </div>
     </ng-template>
   </mat-card>
