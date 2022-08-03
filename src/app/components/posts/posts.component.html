@@ -13,7 +13,10 @@
       {{displayVotes(x)}}
       <img alt="downvote" src="{{emptyFilledPath[getDownvote(i)]}}" class="downVote" width="25" height="25" (click)="voteDown(i)" style="transform: scaleY(-1); cursor: pointer; padding: 3px">
       </div>
-      <div class="date">{{x.created.substring(0,10).split('-').reverse().join('/')}}</div>
+      <div class="rightOptions">
+        <div class="date">{{x.created.substring(0,10).split('-').reverse().join('/')}}</div>
+        <button mat-icon-button class="flagPost" (click)="openFlagDialog(x)"><mat-icon >outlined_flag</mat-icon></button>
+      </div>
   </div>
     <ng-template #notLoggedIn>
         <div class="metaData">
@@ -22,7 +25,10 @@
             {{displayVotes(x)}}
             <img alt="downvote" src="{{emptyFilledPath[getDownvote(i)]}}" class="downVote" width="25" height="25" style="transform: scaleY(-1); cursor: pointer; padding: 3px">
           </div>
-          <div class="date">{{x.created.substring(0,10).split('-').reverse().join('/')}}</div>
+          <div class="rightOptions">
+            <div class="date">{{x.created.substring(0,10).split('-').reverse().join('/')}}</div>
+            <button mat-icon-button class="flagPost" (click)="openFlagDialog(x)"><mat-icon >outlined_flag</mat-icon></button>
+          </div>
         </div>
     </ng-template>
   </mat-card>

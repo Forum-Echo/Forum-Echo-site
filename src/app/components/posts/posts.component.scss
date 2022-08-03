@@ -58,7 +58,12 @@
   align-items: center;
   margin-left: 15px;
 }
-
-.date {
+.rightOptions {
+  display: flex;
+  align-items: center;
+  justify-items: center;
   margin-right: 15px;
+}
+.flagPost {
+  line-height: 0;
 }

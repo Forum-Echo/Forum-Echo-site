@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Report</h1>
+<div mat-dialog-content>
+  <p>Do you want to report this post by {{getUserName(data.authorId)}}</p>
+</div>
+<div mat-dialog-actions>
+<!-- <div> -->
+  <button class="mat-button" (click)="onNoClick()">No Thanks</button>
+  <button class="mat-raised-button mat-accent" cdkFocusInitial>Ok</button>
+</div>
