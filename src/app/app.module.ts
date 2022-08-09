@@ -12,7 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { InfoComponent } from './components/info/info.component';
-import { PostsComponent } from './components/posts/posts.component';
+import {FlagPostDialog, PostsComponent} from './components/posts/posts.component';
 import { RouterModule } from "@angular/router";
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from "./routing/app-routing.module";
@@ -21,7 +21,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatOptionModule } from "@angular/material/core";
 import { NewPostComponent } from "./components/newpost/newpost.component";
-import { UserSettingsComponent } from "./components/user-settings/user-settings.component";
+import {DeleteDialog, UserSettingsComponent} from "./components/user-settings/user-settings.component";
 import { EditpostComponent } from './components/editpost/editpost.component';
 import { HttpModule } from "./http/http.module";
 import { RegisterComponent } from './components/register/register.component';
@@ -53,6 +53,8 @@ import { TermsComponent } from './components/terms/terms.component';
     AboutComponent,
     PrivacyComponent,
     TermsComponent,
+    DeleteDialog,
+    FlagPostDialog,
   ],
   imports: [
     MatCheckboxModule,

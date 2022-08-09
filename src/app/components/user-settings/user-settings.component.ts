@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../../http/services/auth.service";
 import { Router } from "@angular/router";
 import { UserService } from "../../http/services/user.service";
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@angular/material/dialog";
+import { DialogData } from "../posts/posts.component";
 
 
 @Component({
@@ -24,7 +26,8 @@ export class UserSettingsComponent implements OnInit {
     private readonly userService: UserService,
     private readonly edit: UserService,
     private snackBar: MatSnackBar,
-    private readonly router: Router
+    private readonly router: Router,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -71,10 +74,6 @@ export class UserSettingsComponent implements OnInit {
     return this.authService.logout();
   }
 
-  delUser() {
-    return this.userService.delUser();
-  }
-
   openSnackBar() {
     this.snackBar.open('We sent you an email!', '', {
       duration: 3000
@@ -96,5 +95,31 @@ export class UserSettingsComponent implements OnInit {
 
   toRegister() {
     this.router.navigate(['register'])
+  }
+
+  openFlagDialog() {
+    const dialogRef = this.dialog.open(DeleteDialog, {
+      width: '250px',
+    });
+  }
+}
+
+@Component({
+  selector: 'delete-dialog',
+  templateUrl: 'delete-dialog.html',
+})
+export class DeleteDialog {
+  constructor(
+    public dialogRef: MatDialogRef<DeleteDialog>,
+    private userService: UserService,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,) {
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  delUser() {
+    return this.userService.delUser();
   }
 }
