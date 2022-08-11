@@ -4,6 +4,7 @@ import { AuthService } from "../../http/services/auth.service";
 import { VoteService } from "../../http/services/vote.service";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UserService } from 'src/app/http/services/user.service';
+import { take } from 'rxjs';
 
 export interface DialogData {
   authorId: string;
@@ -119,8 +120,8 @@ export class PostsComponent implements OnInit, OnChanges {
 
     this.voteService.upvote(this.response[i]._id).subscribe(result => console.log(result));
 
-    console.log("Likes", this.response[i].likedBy);
-    console.log("Disliked", this.response[i].dislikedBy);
+    // console.log("Likes", this.response[i].likedBy);
+    // console.log("Disliked", this.response[i].dislikedBy);
   }
 
   voteDown = (i: number) => {
@@ -141,13 +142,13 @@ export class PostsComponent implements OnInit, OnChanges {
 
     this.voteService.downvote(this.response[i]._id).subscribe(result => console.log(result));
 
-    console.log("Likes", this.response[i].liked_by);
-    console.log("Disliked", this.response[i].disliked_by);
+    // console.log("Likes", this.response[i].liked_by);
+    // console.log("Disliked", this.response[i].disliked_by);
   }
 
   // Display vote types
-  getUpvote = (i: number) => this.response[i].likedBy.includes(localStorage.getItem('user_id')) ? 'filled' : 'empty';
-  getDownvote = (i: number) => this.response[i].dislikedBy.includes(localStorage.getItem('user_id')) ? 'filled': 'empty';
+  getUpvote = (i: number) => this.response[i].likedBy.includes(localStorage.getItem('user_id')) ? "assets/pictures/Arrow-filled.png" : "assets/pictures/Arrow.png";
+  getDownvote = (i: number) => this.response[i].dislikedBy.includes(localStorage.getItem('user_id')) ? "assets/pictures/Arrow-filled.png" : "assets/pictures/Arrow.png";
 
   // Display large numbers of votes in a nice manner
   displayVotes(post: any){
@@ -179,6 +180,7 @@ export class PostsComponent implements OnInit, OnChanges {
     });
   }
 }
+
 @Component({
   selector: 'dialog-flag-post-dialog',
   templateUrl: 'flag-post-dialog.html',
