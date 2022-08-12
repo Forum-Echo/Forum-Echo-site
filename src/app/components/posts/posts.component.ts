@@ -20,11 +20,6 @@ export class PostsComponent implements OnInit, OnChanges {
   @Input() sortingOptions: boolean[] = [];
   response: any = [];
 
-  emptyFilledPath = {
-    empty: "assets/pictures/Arrow.png",
-    filled: "assets/pictures/Arrow-filled.png"
-  };
-
   constructor(private postService: PostService, private authService: AuthService, private voteService: VoteService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -120,8 +115,6 @@ export class PostsComponent implements OnInit, OnChanges {
 
     this.voteService.upvote(this.response[i]._id).subscribe(result => console.log(result));
 
-    // console.log("Likes", this.response[i].likedBy);
-    // console.log("Disliked", this.response[i].dislikedBy);
   }
 
   voteDown = (i: number) => {
@@ -141,18 +134,19 @@ export class PostsComponent implements OnInit, OnChanges {
     }
 
     this.voteService.downvote(this.response[i]._id).subscribe(result => console.log(result));
-
-    // console.log("Likes", this.response[i].liked_by);
-    // console.log("Disliked", this.response[i].disliked_by);
   }
 
   // Display vote types
-  getUpvote = (i: number) => this.response[i].likedBy.includes(localStorage.getItem('user_id')) ? "assets/pictures/Arrow-filled.png" : "assets/pictures/Arrow.png";
-  getDownvote = (i: number) => this.response[i].dislikedBy.includes(localStorage.getItem('user_id')) ? "assets/pictures/Arrow-filled.png" : "assets/pictures/Arrow.png";
+  getUpvote (i: number) { 
+    return this.response[i].likedBy.includes(localStorage.getItem('user_id')) ? "assets/pictures/Arrow-filled.png" : "assets/pictures/Arrow.png";
+  }
+  getDownvote (i: number) { 
+    return this.response[i].dislikedBy.includes(localStorage.getItem('user_id')) ? "assets/pictures/Arrow-filled.png" : "assets/pictures/Arrow.png";
+  }
 
   // Display large numbers of votes in a nice manner
   displayVotes(post: any){
-    const votes = post.likedBy.length- post.dislikedBy.length;
+    const votes = post.likedBy.length - post.dislikedBy.length;
     if(votes < 1000){
       return votes;
     }
