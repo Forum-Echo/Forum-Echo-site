@@ -16,12 +16,13 @@
       <label id="showP">
         <mat-checkbox name="showP" (click)="togglePass()">Show Password</mat-checkbox>
       </label>
-      <button mat-raised-button type="submit" class="mt-5" color="primary">Save</button>
+      
+        <button mat-raised-button type="submit" class="form-button mt-5" color="primary">Save</button>
 
-      <button mat-raised-button class="mt-5" color="accent" (click)="logOut()">Logout</button>
+        <button mat-raised-button class="mt-5" color="accent" (click)="logOut()">Log out</button>
 
-      <button mat-raised-button class="mt-5" color="warn" (click)="delUser()">Delete User</button>
-      <a id="request-data" (click)="openSnackBar()">Request data</a>
+        <button mat-raised-button class="mt-5" color="warn" (click)="delUser()">Delete User</button>
+        <a class="form-button" id="request-data" (click)="openSnackBar()">Request data</a>
     </form>
   </mat-card>
 </div>
