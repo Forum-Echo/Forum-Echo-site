@@ -4,6 +4,7 @@ import { AuthService } from "../../http/services/auth.service";
 import { VoteService } from "../../http/services/vote.service";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UserService } from 'src/app/http/services/user.service';
+import {take} from "rxjs";
 
 export interface DialogData {
   authorId: string;
@@ -105,10 +106,10 @@ export class PostsComponent implements OnInit, OnChanges {
   }
 
   // Display vote types
-  getUpvote (i: number) { 
+  getUpvote (i: number) {
     return this.response[i].likedBy.includes(localStorage.getItem('user_id')) ? "assets/pictures/Arrow-filled.png" : "assets/pictures/Arrow.png";
   }
-  getDownvote (i: number) { 
+  getDownvote (i: number) {
     return this.response[i].dislikedBy.includes(localStorage.getItem('user_id')) ? "assets/pictures/Arrow-filled.png" : "assets/pictures/Arrow.png";
   }
 
@@ -148,7 +149,7 @@ export class PostsComponent implements OnInit, OnChanges {
 })
 export class FlagPostDialog implements OnInit {
 
-  username: string | undefined; 
+  username: string | undefined;
 
   constructor(
     public dialogRef: MatDialogRef<FlagPostDialog>,
