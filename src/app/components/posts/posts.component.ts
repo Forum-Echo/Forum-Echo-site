@@ -105,12 +105,16 @@ export class PostsComponent implements OnInit, OnChanges {
   }
 
   // Display vote types
-  getUpvote = (i: number) => this.response[i].likedBy.includes(localStorage.getItem('user_id')) ? 'filled' : 'empty';
-  getDownvote = (i: number) => this.response[i].dislikedBy.includes(localStorage.getItem('user_id')) ? 'filled': 'empty';
+  getUpvote (i: number) { 
+    return this.response[i].likedBy.includes(localStorage.getItem('user_id')) ? "assets/pictures/Arrow-filled.png" : "assets/pictures/Arrow.png";
+  }
+  getDownvote (i: number) { 
+    return this.response[i].dislikedBy.includes(localStorage.getItem('user_id')) ? "assets/pictures/Arrow-filled.png" : "assets/pictures/Arrow.png";
+  }
 
   // Display large numbers of votes in a nice manner
   displayVotes(post: any){
-    const votes = post.likedBy.length- post.dislikedBy.length;
+    const votes = post.likedBy.length - post.dislikedBy.length;
     if(votes < 1000){
       return votes;
     }
@@ -142,19 +146,24 @@ export class PostsComponent implements OnInit, OnChanges {
   selector: 'dialog-flag-post-dialog',
   templateUrl: 'flag-post-dialog.html',
 })
-export class FlagPostDialog {
+export class FlagPostDialog implements OnInit {
+
+  username: string | undefined; 
+
   constructor(
     public dialogRef: MatDialogRef<FlagPostDialog>,
     private userService: UserService,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
   ) {}
 
+
+  ngOnInit(): void {
+    this.userService.getUserById(this.data.authorId).pipe(take(1)).subscribe((result) => {
+      this.username = result.username;
+    });
+  }
+
   onNoClick(): void {
     this.dialogRef.close();
-  }
-  getUserName(userId: string): any{
-    this.userService.getUserById(userId).subscribe(result => {
-      console.log(result);
-    });
   }
 }

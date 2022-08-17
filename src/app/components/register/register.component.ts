@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../http/services/user.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -23,7 +24,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private readonly userService: UserService,
-    private readonly router: Router
+    private readonly router: Router,
+    private snackBar: MatSnackBar,
   ) { }
 
   ngOnInit(): void {
@@ -43,6 +45,9 @@ export class RegisterComponent implements OnInit {
       this.userService.register(this.formGroup.value).subscribe(result => {
         if (result.success) {
           this.router.navigate([`/login`]);
+          this.snackBar.open('Please confirm your email', '', {
+            duration: 3000
+          });
         } else {
           this.error = result.error;
         }
