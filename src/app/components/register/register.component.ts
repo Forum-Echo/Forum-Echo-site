@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../http/services/user.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-register',
@@ -19,8 +20,6 @@ export class RegisterComponent implements OnInit {
   username: string = '';
   email: string = '';
   password: string = '';
-
-  error: any;
 
   constructor(
     private readonly userService: UserService,
@@ -43,17 +42,31 @@ export class RegisterComponent implements OnInit {
   register() {
     if (this.formGroup.valid) {
       this.userService.register(this.formGroup.value).subscribe(result => {
-        if (result.success) {
-          this.router.navigate([`/login`]);
-          this.snackBar.open('Please confirm your email', '', {
-            duration: 3000
-          });
-        } else {
-          this.error = result.error;
+        this.router.navigate([`/login`]);
+        this.snackBar.open('Please confirm your email', '', { duration: 3000 });
+      // Error Catching
+      }, (e: HttpErrorResponse) => {
+        // Catch too long usernames
+        if (e.status === 400) {
+          this.snackBar.open('Username too long!', '', { duration: 3000 });
+          return;
         }
-        return;
+        // Catch already existing usernames / emails
+        if (e.status === 409) {
+          console.log(e.error.message);
+          // Catch already existing username
+          if (e.error.message === 'user_already_exists') {
+            this.snackBar.open('Username already exists!', '', { duration: 3000 });
+            return;
+          }
+          // Catch already existing email
+          if (e.error.message === 'email_already_exists') {
+            this.snackBar.open('Email already exists!', '', { duration: 3000 });
+            return;
+          }
+          return;
+        }
       });
-      this.error = 'No Connection to Backend!'
     }
   }
 

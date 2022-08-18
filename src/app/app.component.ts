@@ -11,7 +11,7 @@ import { slideInAnimation } from "./routing/animation";
   ]
 })
 export class AppComponent {
-  title = 'angular-front-end';
+  title = 'ForumEcho';
 
   constructor(private contexts: ChildrenOutletContexts) {}
 
