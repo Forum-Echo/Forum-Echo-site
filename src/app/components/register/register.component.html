@@ -1,7 +1,7 @@
 <div class="welcoming">
   <h1 id="welcomeTitle">Welcome to Forum Echo&trade;</h1>
 </div>
-<div fxLayoutAlign="center start" class="card-div">
+<div fxLayoutAlign="center start" class="card-div" *ngIf="!spinner; else Spinner">
   <mat-card fxFlex="25">
     <mat-toolbar color="primary">Register</mat-toolbar>
     <form fxLayoutAlign="stretch" fxLayout="column" class="post-form" [formGroup]="formGroup" (ngSubmit)="register()">
@@ -33,3 +33,9 @@
     </form>
   </mat-card>
 </div>
+<ng-template #Spinner>
+  <div fxLayoutAlign="center start">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+

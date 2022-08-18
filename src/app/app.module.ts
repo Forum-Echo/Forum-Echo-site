@@ -34,6 +34,7 @@ import { AboutButtonComponent } from './components/about-button/about-button.com
 import { AboutComponent } from './components/about/about.component';
 import { PrivacyComponent } from './components/privacy/privacy.component';
 import { TermsComponent } from './components/terms/terms.component';
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { TermsComponent } from './components/terms/terms.component';
     MatIconModule,
     InfiniteScrollModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
