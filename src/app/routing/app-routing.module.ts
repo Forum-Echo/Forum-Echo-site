@@ -14,16 +14,16 @@ import { PrivacyComponent } from '../components/privacy/privacy.component';
 import { TermsComponent } from '../components/terms/terms.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'user', component: UserSettingsComponent },
-  { path: 'editpost/:post_id', component: EditpostComponent },
-  { path: 'newpost', component: NewPostComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'about', component: AboutComponent},
-  { path: 'privacy', component: PrivacyComponent},
-  { path: 'terms', component: TermsComponent},
-  { path: '**', component: NotfoundComponent }
+  { path: '', component: HomeComponent, data: { animation: 'HomePage' } },
+  { path: 'login', component: LoginComponent, data: { animation: 'LoginPage' } },
+  { path: 'user', component: UserSettingsComponent, data: { animation: 'UserPage' } },
+  { path: 'editpost/:post_id', component: EditpostComponent, data: { animation: 'EditPostPage' } },
+  { path: 'newpost', component: NewPostComponent, data: { animation: 'NewPostPage' } },
+  { path: 'register', component: RegisterComponent, data: { animation: 'RegisterPage' } },
+  { path: 'about', component: AboutComponent, data: { animation: 'AboutPage' } },
+  { path: 'privacy', component: PrivacyComponent, data: { animation: 'PrivacyPage' } },
+  { path: 'terms', component: TermsComponent, data: { animation: 'TermsPage' } },
+  { path: '**', component: NotfoundComponent, data: { animation: 'NotFoundPage' } }
 ];
 
 @NgModule({
