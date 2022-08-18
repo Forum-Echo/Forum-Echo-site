@@ -1,25 +1,27 @@
-  <div class="welcoming">
-    <h1 id="welcomeTitle">Welcome to Forum Echo&trade;</h1>
-  </div>
-  <div fxLayoutAlign="center start" class="card-div">
-    <mat-card fxFlex="25">
-      <mat-toolbar color="primary">Login Page</mat-toolbar>
-      <form fxLayoutAlign="stretch" fxLayout="column" class="post-form" [formGroup]="formGroup" (ngSubmit)="loginProcess()">
-        <mat-form-field>
-          <input matInput placeholder="Username" formControlName="username">
-        </mat-form-field>
+<div class="welcoming">
+  <h1 id="welcomeTitle">Welcome to Forum Echo&trade;</h1>
+</div>
+<div fxLayoutAlign="center start" class="card-div" *ngIf="!spinner; else Spinner">
+  <mat-card fxFlex="25">
+    <mat-toolbar color="primary">Login Page</mat-toolbar>
+    <form fxLayoutAlign="stretch" fxLayout="column" class="post-form" [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+      <mat-form-field>
+        <input matInput placeholder="Username" formControlName="username">
+      </mat-form-field>
 
-        <mat-form-field>
-          <input matInput placeholder="Password" type={{passwordType}} formControlName="password">
-        </mat-form-field>
-        <label id="showP">
-          <mat-checkbox type="checkbox" name="showP" (click)="togglePass()">Show Password</mat-checkbox>
-        </label>
-        <mat-error *ngIf="error">
-          {{error}}
-        </mat-error>
-        <button mat-raised-button type="submit" class="mt-5" color="primary">Login</button>
-        <button mat-raised-button class="mt-5" color="accent" (click)="switchToRegister()">Don't have an account yet?</button>
-      </form>
-    </mat-card>
+      <mat-form-field>
+        <input matInput placeholder="Password" type={{passwordType}} formControlName="password">
+      </mat-form-field>
+      <label id="showP">
+        <mat-checkbox name="showP" (click)="togglePass()">Show Password</mat-checkbox>
+      </label>
+      <button mat-raised-button type="submit" class="mt-5" color="primary">Login</button>
+      <button mat-raised-button class="mt-5" color="accent" (click)="switchToRegister()">Don't have an account yet?</button>
+    </form>
+  </mat-card>
+</div>
+<ng-template #Spinner>
+  <div fxLayoutAlign="center start">
+    <mat-spinner></mat-spinner>
   </div>
+</ng-template>

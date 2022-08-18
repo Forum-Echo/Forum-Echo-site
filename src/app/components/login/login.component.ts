@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   isToggleOn = false;
   passwordType = "password";
 
-  error: any;
+  spinner: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
 
   loginProcess() {
     if (this.formGroup.valid) {
+      this.spinner = true;
       this.authService.login(this.formGroup.value).subscribe(result => {
         this.snackBar.open('You successfully logged in!', '', {
           duration: 3000
@@ -48,20 +49,18 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('user_id', result.id);
         this.router.navigate([`/`]);
       }, (e: HttpErrorResponse) => { // Error Handling
+        this.spinner = false;
         // Catch wrong credentials
         if (e.status === 401) {
-          this.snackBar.open('Wrong credentials!', '', {
-            duration: 3000,
-          });
+          this.snackBar.open('Wrong credentials!', '', { duration: 3000 });
           return;
         }
         // Catch unverified users
         if (e.status === 403) {
-          this.snackBar.open('Please verify your account first!', '', {
-            duration: 3000,
-          });
+          this.snackBar.open('Please verify your account first!', '', { duration: 3000 });
           return;
         }
+        this.snackBar.open(`Error: ${e.message}`, '', { duration: 3000 });
       });
     }
   }
