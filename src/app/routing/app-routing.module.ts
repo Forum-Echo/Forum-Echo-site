@@ -20,10 +20,10 @@ export const routes: Routes = [
   { path: 'editpost/:post_id', component: EditpostComponent, data: { animation: 'EditPostPage' } },
   { path: 'newpost', component: NewPostComponent, data: { animation: 'NewPostPage' } },
   { path: 'register', component: RegisterComponent, data: { animation: 'RegisterPage' } },
-  { path: 'about', component: AboutComponent, data: { animation: 'AboutPage' } },
-  { path: 'privacy', component: PrivacyComponent, data: { animation: 'PrivacyPage' } },
-  { path: 'terms', component: TermsComponent, data: { animation: 'TermsPage' } },
-  { path: '**', component: NotfoundComponent, data: { animation: 'NotFoundPage' } }
+  { path: 'about', component: AboutComponent },
+  { path: 'privacy', component: PrivacyComponent },
+  { path: 'terms', component: TermsComponent },
+  { path: '**', component: NotfoundComponent } ,
 ];
 
 @NgModule({

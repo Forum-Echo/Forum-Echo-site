@@ -4,6 +4,7 @@ import { AuthService } from "../../http/services/auth.service";
 import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { HttpErrorResponse } from "@angular/common/http";
 
 @Component({
   selector: 'app-login',
@@ -40,16 +41,27 @@ export class LoginComponent implements OnInit {
   loginProcess() {
     if (this.formGroup.valid) {
       this.authService.login(this.formGroup.value).subscribe(result => {
-        if (result.access_token) {
-          localStorage.setItem('token', result.access_token);
-          localStorage.setItem('user_id', result.id);
-          this.router.navigate([`/`]);
-        } else {
-          this.error = 'Wrong credentials';
-        }
         this.snackBar.open('You successfully logged in!', '', {
           duration: 3000
         });
+        localStorage.setItem('token', result.access_token);
+        localStorage.setItem('user_id', result.id);
+        this.router.navigate([`/`]);
+      }, (e: HttpErrorResponse) => { // Error Handling
+        // Catch wrong credentials
+        if (e.status === 401) {
+          this.snackBar.open('Wrong credentials!', '', {
+            duration: 3000,
+          });
+          return;
+        }
+        // Catch unverified users
+        if (e.status === 403) {
+          this.snackBar.open('Please verify your account first!', '', {
+            duration: 3000,
+          });
+          return;
+        }
       });
     }
   }
