@@ -24,7 +24,7 @@ export const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'privacy', component: PrivacyComponent },
   { path: 'terms', component: TermsComponent },
-  { path: 'verify/:Id' , component: VerifyComponent },
+  { path: 'verify/:Id' , component: VerifyComponent, data: { animation: 'VerifyPage' } },
   { path: '**', component: NotfoundComponent },
 ];
 
