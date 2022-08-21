@@ -3,12 +3,16 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../http/services/user.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {HttpErrorResponse} from "@angular/common/http";
+import { HttpErrorResponse } from "@angular/common/http";
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['../../component-styles/login-register.scss', '../../component-styles/errors.scss', './register.component.scss']
+  styleUrls: [
+    '../../component-styles/login-register.scss',
+    '../../component-styles/errors.scss',
+    './register.component.scss'
+  ]
 })
 export class RegisterComponent implements OnInit {
 
@@ -76,9 +80,5 @@ export class RegisterComponent implements OnInit {
   togglePass(){
     this.isToggleOn = !this.isToggleOn;
     this.passwordType = this.isToggleOn ? "text" : "password";
-  }
-
-  switchToLogin() {
-    this.router.navigate(['/login']);
   }
 }

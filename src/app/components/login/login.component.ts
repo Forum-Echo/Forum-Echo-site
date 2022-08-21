@@ -9,7 +9,10 @@ import { HttpErrorResponse } from "@angular/common/http";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['../../component-styles/login-register.scss', './login.component.scss']
+  styleUrls: [
+    '../../component-styles/login-register.scss',
+    './login.component.scss'
+  ]
 })
 export class LoginComponent implements OnInit {
 
@@ -68,9 +71,5 @@ export class LoginComponent implements OnInit {
   togglePass(){
     this.isToggleOn = !this.isToggleOn;
     this.passwordType = this.isToggleOn ? "text" : "password";
-  }
-
-  switchToRegister() {
-    this.router.navigate(['/register']);
   }
 }

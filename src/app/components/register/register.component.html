@@ -29,7 +29,7 @@
         <mat-checkbox name="showP" (click)="togglePass()">Show Password</mat-checkbox>
       </label>
       <button mat-raised-button type="submit" class="mt-5" color="primary">Register</button>
-      <button mat-raised-button class="mt-5" color="accent" (click)="switchToLogin()">Already have an account?</button>
+      <a routerLink="/login" class="anchor">Sign In</a>
     </form>
   </mat-card>
 </div>
