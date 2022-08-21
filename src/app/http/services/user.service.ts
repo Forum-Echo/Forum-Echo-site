@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { baseUrl } from "../../../environments/environment";
 import { Observable, } from "rxjs";
-import {shareReplay, map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +25,12 @@ export class UserService {
   getUser(): Observable<any> {
     return this.http.get(`${baseUrl}user/get`)
   }
+
   getUserById(user_id: string): Observable<any> {
     return this.http.get(`${baseUrl}user/getUser/${user_id}`);
+  }
+
+  verifyUser(userId: string): Observable<any> {
+    return this.http.patch(`${baseUrl}user/verify`, { token: userId  });
   }
 }
