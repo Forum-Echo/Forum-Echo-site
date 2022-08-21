@@ -30,7 +30,7 @@ export class UserService {
     return this.http.get(`${baseUrl}user/getUser/${user_id}`);
   }
 
-  verifyUser(userId: string): Observable<any> {
-    return this.http.patch(`${baseUrl}user/verify`, { token: userId  });
+  verifyUser(token: string): Observable<any> {
+    return this.http.patch(`${baseUrl}user/verify`, { token: token  });
   }
 }

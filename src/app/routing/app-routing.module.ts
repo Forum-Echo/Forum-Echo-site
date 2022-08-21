@@ -12,6 +12,7 @@ import {NotfoundComponent} from "../components/notfound/notfound.component";
 import { AboutComponent } from '../components/about/about.component';
 import { PrivacyComponent } from '../components/privacy/privacy.component';
 import { TermsComponent } from '../components/terms/terms.component';
+import {VerifyComponent} from "../components/verify/verify.component";
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, data: { animation: 'HomePage' } },
@@ -23,7 +24,8 @@ export const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'privacy', component: PrivacyComponent },
   { path: 'terms', component: TermsComponent },
-  { path: '**', component: NotfoundComponent } ,
+  { path: 'verify/:Id' , component: VerifyComponent },
+  { path: '**', component: NotfoundComponent },
 ];
 
 @NgModule({
