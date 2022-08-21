@@ -35,6 +35,7 @@ import { AboutComponent } from './components/about/about.component';
 import { PrivacyComponent } from './components/privacy/privacy.component';
 import { TermsComponent } from './components/terms/terms.component';
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { VerifyComponent } from './components/verify/verify.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
     TermsComponent,
     DeleteDialog,
     FlagPostDialog,
+    VerifyComponent,
   ],
   imports: [
     MatCheckboxModule,
