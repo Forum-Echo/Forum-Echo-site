@@ -12,7 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { InfoComponent } from './components/info/info.component';
-import {FlagPostDialog, PostsComponent} from './components/posts/posts.component';
+import { FlagPostDialog, PostsComponent } from './components/posts/posts.component';
 import { RouterModule } from "@angular/router";
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from "./routing/app-routing.module";
@@ -21,7 +21,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatOptionModule } from "@angular/material/core";
 import { NewPostComponent } from "./components/newpost/newpost.component";
-import {DeleteDialog, UserSettingsComponent} from "./components/user-settings/user-settings.component";
+import { DeleteDialog, UserSettingsComponent } from "./components/user-settings/user-settings.component";
 import { EditpostComponent } from './components/editpost/editpost.component';
 import { HttpModule } from "./http/http.module";
 import { RegisterComponent } from './components/register/register.component';
@@ -29,13 +29,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
-import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { AboutButtonComponent } from './components/about-button/about-button.component';
 import { AboutComponent } from './components/about/about.component';
 import { PrivacyComponent } from './components/privacy/privacy.component';
 import { TermsComponent } from './components/terms/terms.component';
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { VerifyComponent } from './components/verify/verify.component';
+import { ResetComponent } from './components/reset/reset.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { VerifyComponent } from './components/verify/verify.component';
     DeleteDialog,
     FlagPostDialog,
     VerifyComponent,
+    ResetComponent,
   ],
   imports: [
     MatCheckboxModule,

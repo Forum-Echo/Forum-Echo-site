@@ -1,0 +1,32 @@
+<div *ngIf="!result; else Result" fxLayoutAlign="center start" class="card-div">
+  <mat-card fxFlex="25">
+    <mat-toolbar color="primary">Reset Password</mat-toolbar>
+
+    <form fxLayoutAlign="stretch" fxLayout="column" class="post-form" [formGroup]="formGroup" (ngSubmit)="resetPassword()">
+      <mat-form-field>
+        <input matInput placeholder="Password" type={{passwordType}} formControlName="password">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Type password again" type={{passwordType}} formControlName="controll_password">
+      </mat-form-field>
+      <label id="showP">
+      <mat-checkbox name="showP" (click)="togglePass()">Show Passwords</mat-checkbox>
+    </label>
+      <button mat-raised-button type="submit" class="mt-5" color="primary">Reset Password</button>
+    </form>
+  </mat-card>
+</div>
+
+<ng-template #Result>
+  <div fxLayoutAlign="center center" class="content" *ngIf="!error; else Error">
+    <p class="message">Successfully verified your user!</p>
+  </div>
+
+  <ng-template #Error>
+    <div fxLayoutAlign="center start" class="content">
+      An error occurred! message: <p class="message">{{error}}</p>
+    </div>
+    <p fxLayoutAlign="center center"><a routerLink="/login" class="anchor">Sign In</a></p>
+  </ng-template>
+</ng-template>
