@@ -33,4 +33,11 @@ export class UserService {
   verifyUser(token: string): Observable<any> {
     return this.http.patch(`${baseUrl}user/verify`, { token: token  });
   }
+
+  resetPassword(token: string, new_password: string): Observable<any> {
+    return this.http.patch(
+      `${baseUrl}user/reset-password/`,
+      { token: token, new_password: new_password }
+    );
+  }
 }
