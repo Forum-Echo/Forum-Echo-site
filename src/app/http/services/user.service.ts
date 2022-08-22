@@ -40,4 +40,8 @@ export class UserService {
       { token: token, new_password: new_password }
     );
   }
+
+  forgotPassword(email: string): Observable<any> {
+    return this.http.get(`${baseUrl}user/forget-password/${email}`);
+  }
 }

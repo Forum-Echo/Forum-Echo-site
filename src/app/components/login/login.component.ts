@@ -44,13 +44,13 @@ export class LoginComponent implements OnInit {
   loginProcess() {
     if (this.formGroup.valid) {
       this.spinner = true;
-      this.authService.login(this.formGroup.value).subscribe(result => {
+      this.authService.login(this.formGroup.value).subscribe(async result => {
+        localStorage.setItem('token', result.access_token);
+        localStorage.setItem('user_id', result.id);
+        await this.router.navigate([`/`]);
         this.snackBar.open('You successfully logged in!', '', {
           duration: 3000
         });
-        localStorage.setItem('token', result.access_token);
-        localStorage.setItem('user_id', result.id);
-        this.router.navigate([`/`]);
       }, (e: HttpErrorResponse) => { // Error Handling
         this.spinner = false;
         // Catch wrong credentials
