@@ -26,7 +26,8 @@ export const routes: Routes = [
   { path: 'privacy', component: PrivacyComponent },
   { path: 'terms', component: TermsComponent },
   { path: 'verify/:Id', component: VerifyComponent, data: { animation: 'VerifyPage' } },
-  { path: 'reset/:token', component: ResetComponent, data: { animation: 'ResetPage' } },
+  { path: 'password/reset/:token', component: ResetComponent, data: { animation: 'ResetPage' } },
+  { path: 'password/forgot/' component: ForgotComponent, data: { animation: 'ForgotPage' } },
   { path: '**', component: NotfoundComponent },
 ];
 
