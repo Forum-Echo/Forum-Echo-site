@@ -37,6 +37,7 @@ import { TermsComponent } from './components/terms/terms.component';
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { VerifyComponent } from './components/verify/verify.component';
 import { ResetComponent } from './components/reset/reset.component';
+import { ForgotComponent } from './components/forgot/forgot.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { ResetComponent } from './components/reset/reset.component';
     FlagPostDialog,
     VerifyComponent,
     ResetComponent,
+    ForgotComponent,
   ],
   imports: [
     MatCheckboxModule,

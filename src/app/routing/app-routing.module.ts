@@ -8,12 +8,13 @@ import { UserSettingsComponent } from '../components/user-settings/user-settings
 import { NgModule } from '@angular/core';
 import { EditpostComponent } from '../components/editpost/editpost.component';
 import { RegisterComponent } from '../components/register/register.component';
-import {NotfoundComponent} from "../components/notfound/notfound.component";
+import { NotfoundComponent } from "../components/notfound/notfound.component";
 import { AboutComponent } from '../components/about/about.component';
 import { PrivacyComponent } from '../components/privacy/privacy.component';
 import { TermsComponent } from '../components/terms/terms.component';
 import { VerifyComponent } from "../components/verify/verify.component";
-import {ResetComponent} from "../components/reset/reset.component";
+import { ResetComponent} from "../components/reset/reset.component";
+import { ForgotComponent} from "../components/forgot/forgot.component";
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, data: { animation: 'HomePage' } },
@@ -26,9 +27,9 @@ export const routes: Routes = [
   { path: 'privacy', component: PrivacyComponent },
   { path: 'terms', component: TermsComponent },
   { path: 'verify/:Id', component: VerifyComponent, data: { animation: 'VerifyPage' } },
-  { path: 'password/reset/:token', component: ResetComponent, data: { animation: 'ResetPage' } },
-  { path: 'password/forgot/' component: ForgotComponent, data: { animation: 'ForgotPage' } },
-  { path: '**', component: NotfoundComponent },
+  { path: 'reset/:token', component: ResetComponent, data: { animation: 'ResetPage' } },
+  { path: 'forgot', component: ForgotComponent, data: { animation: 'ForgotPage' } },
+  { path: '**', component: NotfoundComponent, data: { animation: 'NotfoundPage' } },
 ];
 
 @NgModule({
