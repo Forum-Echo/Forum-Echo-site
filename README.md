@@ -1,27 +1,33 @@
-# AngularFrontEnd
+# [ForumEcho](https://forumecho.eu) - Site
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.8.
+This project is the front-end of the ForumEcho platform.
 
-## Development server
+## Technology
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+We are using the Angular Framework by Google
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Homepage
+    - all posts
+    - Sorter
+- Login
+- Register
+- New Post
+- Edit Post
+- AboutPage
+- Forgot-Password
+- User-Settings
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Donations
+If you want to help us to finance our servers and domains, you can sponsor us on those sites:
 
-## Running unit tests
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/forumecho)
+[!["GoFundMe"](https://cdn.discordapp.com/attachments/931996388617781269/1011712445049475233/Gofundme-logo.png)](https://www.gofundme.com/f/support-forum-echo)
+## Contribution
+To help us improve the project you can fork our repository,
+commit your changes and open a pull request.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+We will review your changes merge them int o the dev branch. 
+At the release of the next version, it  will be in the master branch.
