@@ -36,11 +36,16 @@ export class ForgotComponent implements OnInit {
   forgotPassword(): void {
     if (!this.formGroup.valid) return;
 
-    this.userService.forgotPassword(this.formGroup.value.email).subscribe(async () => {
+    this.userService.forgotPassword(this.formGroup.value.email).subscribe(
+      async () => {
       await this.router.navigate(['/']);
-      this.snackbar.open('We have sent you an email!', '', { duration: 3000 });
+      this.snackbar.open('We have sent you an email!', '',
+        { duration: 3000 }
+      );
     }, (e: HttpErrorResponse) => {
-      this.snackbar.open(`${e.error}`, '', { duration: 3000 });
+      this.snackbar.open(`${e.error}`, '',
+        { duration: 3000 }
+      );
     });
   }
 }

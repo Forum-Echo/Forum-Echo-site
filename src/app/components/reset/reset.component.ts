@@ -46,11 +46,14 @@ export class ResetComponent implements OnInit {
     if (this.formGroup.value.password !== this.formGroup.value.controll_password) return;
 
     // Send request to server
-    this.userService.resetPassword(this.token, this.formGroup.value.password).subscribe(async (result) => {
+    this.userService.resetPassword(this.token, this.formGroup.value.password).subscribe(
+      async (result) => {
       this.result = result;
 
       await this.router.navigate(['/login']);
-      this.snackBar.open('Password successfully reset!', '', {duration: 3000});
+      this.snackBar.open('Password successfully reset!', '',
+        { duration: 3000}
+      );
     }, (e: HttpErrorResponse) => {
       this.error = `${e.message} ${e.error.message}`;
     });

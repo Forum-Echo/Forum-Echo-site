@@ -55,15 +55,21 @@ export class LoginComponent implements OnInit {
         this.spinner = false;
         // Catch wrong credentials
         if (e.status === 401) {
-          this.snackBar.open('Wrong credentials!', '', { duration: 3000 });
+          this.snackBar.open('Wrong credentials!', '',
+            { duration: 3000 }
+          );
           return;
         }
         // Catch unverified users
         if (e.status === 403) {
-          this.snackBar.open('Please verify your account first!', '', { duration: 3000 });
+          this.snackBar.open('Please verify your account first!', '',
+            { duration: 3000 }
+          );
           return;
         }
-        this.snackBar.open(`Error: ${e.message}`, '', { duration: 3000 });
+        this.snackBar.open(`Error: ${e.message}`, '',
+          { duration: 3000 }
+        );
       });
     }
   }

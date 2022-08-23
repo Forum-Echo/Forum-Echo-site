@@ -2,7 +2,9 @@
   <mat-card fxFlex="25">
     <mat-toolbar color="primary">Forgot Password</mat-toolbar>
 
-    <form fxLayoutAlign="stretch" fxLayout="column" class="post-form" [formGroup]="formGroup" (ngSubmit)="forgotPassword()">
+    <form fxLayoutAlign="stretch" fxLayout="column" class="post-form"
+          [formGroup]="formGroup" (ngSubmit)="forgotPassword()"
+    >
       <mat-form-field>
         <input matInput placeholder="Email" type="email" formControlName="email">
       </mat-form-field>

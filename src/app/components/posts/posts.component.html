@@ -9,7 +9,9 @@
     </p>
     <div class="metaData" *ngIf="isLoggedIn(); else notLoggedIn" >
       <div class="upDown">
-      <img alt="upvote" src="{{getUpvote(i)}}" class="upVote" width="25" height="25" (click)="voteUp(i)" style="cursor: pointer; padding: 5px">
+      <img alt="upvote" src="{{getUpvote(i)}}" class="upVote" width="25" height="25"
+           (click)="voteUp(i)" style="cursor: pointer; padding: 5px"
+      >
       {{displayVotes(x)}}
       <img alt="downvote" src="{{getDownvote(i)}}" class="downVote" width="25" height="25" (click)="voteDown(i)" style="transform: scaleY(-1); cursor: pointer; padding: 3px">
       </div>

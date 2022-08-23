@@ -2,7 +2,9 @@
   <mat-card fxFlex="25">
     <mat-toolbar color="primary">Reset Password</mat-toolbar>
 
-    <form fxLayoutAlign="stretch" fxLayout="column" class="post-form" [formGroup]="formGroup" (ngSubmit)="resetPassword()">
+    <form fxLayoutAlign="stretch" fxLayout="column" class="post-form"
+          [formGroup]="formGroup" (ngSubmit)="resetPassword()"
+    >
       <mat-form-field>
         <input matInput placeholder="Password" type={{passwordType}} formControlName="password">
       </mat-form-field>

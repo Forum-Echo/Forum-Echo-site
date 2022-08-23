@@ -1,7 +1,9 @@
 <div *ngIf="isLoggedIn(); else elseBlock" fxLayoutAlign="center center" fxFlexFill class="content">
   <mat-card fxFlex="25">
     <mat-toolbar color="primary">User Settings for {{username}}</mat-toolbar>
-    <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="formGroup" (ngSubmit)="editUser()">
+    <form fxLayoutAlign="stretch" fxLayout="column" class="login-form"
+          [formGroup]="formGroup" (ngSubmit)="editUser()"
+    >
       <mat-form-field>
         <input matInput placeholder="Username" formControlName="username">
       </mat-form-field>
@@ -36,7 +38,9 @@
         <mat-icon>warning</mat-icon> You seem to not be logged in! What do you want to do?
       </mat-error>
       <form fxLayoutAlign="stretch" fxLayout="column" >
-        <button mat-raised-button class="mt-5" color="primary" (click)="toLogin()">Already have an account?</button>
+        <button mat-raised-button class="mt-5" color="primary" (click)="toLogin()">
+          Already have an account?
+        </button>
         <button mat-raised-button class="mt-5" color="accent" (click)="toRegister()">Register</button>
       </form>
     </mat-card>

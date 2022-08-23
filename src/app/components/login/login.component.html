@@ -4,7 +4,9 @@
 <div fxLayoutAlign="center start" class="card-div" *ngIf="!spinner; else Spinner">
   <mat-card fxFlex="25">
     <mat-toolbar color="primary">Login Page</mat-toolbar>
-    <form fxLayoutAlign="stretch" fxLayout="column" class="post-form" [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+    <form fxLayoutAlign="stretch" fxLayout="column" class="post-form"
+          [formGroup]="formGroup" (ngSubmit)="loginProcess()"
+    >
       <mat-form-field>
         <input matInput placeholder="Username" formControlName="username">
       </mat-form-field>

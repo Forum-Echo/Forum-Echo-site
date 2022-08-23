@@ -4,7 +4,9 @@
 <div fxLayoutAlign="center start" class="card-div" *ngIf="!spinner; else Spinner">
   <mat-card fxFlex="25">
     <mat-toolbar color="primary">Register</mat-toolbar>
-    <form fxLayoutAlign="stretch" fxLayout="column" class="post-form" [formGroup]="formGroup" (ngSubmit)="register()">
+    <form fxLayoutAlign="stretch" fxLayout="column" class="post-form"
+          [formGroup]="formGroup" (ngSubmit)="register()"
+    >
       <mat-form-field>
         <input matInput placeholder="Username" formControlName="username">
         <button *ngIf="username" matSuffix mat-icon-button aria-label="Clear" (click)="username=''">
