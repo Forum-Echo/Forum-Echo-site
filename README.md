@@ -32,3 +32,11 @@ commit your changes and open a pull request.
 
 We will review your changes merge them int o the dev branch. 
 At the release of the next version, it  will be in the master branch.
+
+## Support
+
+You can get support by contacting ``support@forumecho.eu``
+
+## License
+
+ForumEcho is [Mozilla Public License 2.0 licensed](LICENSE).
