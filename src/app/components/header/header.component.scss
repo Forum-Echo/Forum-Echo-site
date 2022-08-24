@@ -8,8 +8,13 @@
 #EUFlag {
   border: 1px solid #FDCB0B;
   width: 70px;
-  position: relative;
-  margin-top: 10%;
+  // position: relative;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 10px;
+  margin: 0 auto;
+  // margin-top: 2px;
 }
 
 .profileDot {
