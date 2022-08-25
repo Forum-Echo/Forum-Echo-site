@@ -17,21 +17,21 @@
     flex-direction: column;
     padding: 0 1.5em 1.5em;
 }
-#buymeacoffee-button {
-    margin-bottom: 7px;
-}
-#GoFundMe-link {
+#FundMe-link {
     height: 50px;
     width: 235px;
     border: 0;
+    margin-bottom: 7px;
 }
-#GoFundMe-button {
+#FundMe-button {
     border: 0; 
-    background-color: #00ba5e; 
+    background-color: #1E448A; 
     border-radius: 10px; 
     width: 235px;
     height: 50px;
     cursor: pointer;
+    color: #FFFF;
+    font-size: large;
 }
 .privacy-and-terms {
     position: absolute;

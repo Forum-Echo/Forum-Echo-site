@@ -1,13 +1,13 @@
 <mat-toolbar class="topBar" color="primary">
   <a *ngIf="isLoggedIn(); else elseBlock" routerLink="user">
     <span class="profileDot">
-      <img src="assets/pictures/profile_icon.png" alt="profile_icon">
+      <img id="profileIcon" src="assets/pictures/profile_icon.png" alt="profile_icon">
     </span>
   </a>
   <ng-template #elseBlock>
     <a routerLink="login">
       <span class="profileDot">
-        <img src="assets/pictures/profile_icon.png" alt="profile_icon">
+        <img  alt="profile_icon" id="profileIcon" src="assets/pictures/profile_icon.png">
       </span>
     </a>
   </ng-template>
@@ -15,7 +15,7 @@
     <img alt="FE-logo" src="assets/pictures/FE-logo.png" id="EUFlag">
   </a>
   <a routerLink="newpost">
-    <img alt="newpost" id="add" src="assets/pictures/add_icon.png" *ngIf="showAdd()">
+    <img alt="newpost" id="addIcon" src="assets/pictures/add_icon.png" *ngIf="showAdd()">
   </a>
 
 </mat-toolbar>
