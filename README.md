@@ -1,3 +1,4 @@
+![Forum Echo banner](ForumEcho_banner.png)
 # [ForumEcho](https://forumecho.eu) - Site
 
 This project is the front-end of the ForumEcho platform.
