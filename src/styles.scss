@@ -16,7 +16,10 @@ body {
 }
 
 html, body { height: 100vh; width: 100vw; overflow: overlay;}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { font-family: Roboto, "Helvetica Neue", sans-serif; }
+h1 {
+  line-height: 1.2 !important;
+}
 
 .content {
   margin-top: 5%;
