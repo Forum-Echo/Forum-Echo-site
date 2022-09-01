@@ -21,7 +21,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatOptionModule } from "@angular/material/core";
 import { NewPostComponent } from "./components/newpost/newpost.component";
-import { DeleteDialog, UserSettingsComponent } from "./components/user-settings/user-settings.component";
+import { UserSettingsComponent } from "./components/user-settings/user-settings.component";
 import { EditpostComponent } from './components/editpost/editpost.component';
 import { HttpModule } from "./http/http.module";
 import { RegisterComponent } from './components/register/register.component';
@@ -38,6 +38,8 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { VerifyComponent } from './components/verify/verify.component';
 import { ResetComponent } from './components/reset/reset.component';
 import { ForgotComponent } from './components/forgot/forgot.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { DeleteDialog, DangerZoneComponent } from './components/settings/danger-zone/danger-zone.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,8 @@ import { ForgotComponent } from './components/forgot/forgot.component';
     VerifyComponent,
     ResetComponent,
     ForgotComponent,
+    SettingsComponent,
+    DangerZoneComponent,
   ],
   imports: [
     MatCheckboxModule,

@@ -66,14 +66,6 @@ export class UserSettingsComponent implements OnInit {
     }
   }
 
-  logOut() {
-    this.router.navigate(['/login']);
-    this.snackBar.open('You successfully logged out!', '', {
-      duration: 3000
-    });
-    return this.authService.logout();
-  }
-
   openSnackBar() {
     this.snackBar.open('We sent you an email!', '', {
       duration: 3000
@@ -95,31 +87,5 @@ export class UserSettingsComponent implements OnInit {
 
   toRegister() {
     this.router.navigate(['register'])
-  }
-
-  openFlagDialog() {
-    const dialogRef = this.dialog.open(DeleteDialog, {
-      width: '250px',
-    });
-  }
-}
-
-@Component({
-  selector: 'delete-dialog',
-  templateUrl: 'delete-dialog.html',
-})
-export class DeleteDialog {
-  constructor(
-    public dialogRef: MatDialogRef<DeleteDialog>,
-    private userService: UserService,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,) {
-  }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-  delUser() {
-    return this.userService.delUser();
   }
 }
