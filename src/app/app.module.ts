@@ -40,6 +40,7 @@ import { ResetComponent } from './components/reset/reset.component';
 import { ForgotComponent } from './components/forgot/forgot.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { DeleteDialog, DangerZoneComponent } from './components/settings/danger-zone/danger-zone.component';
+import { ProfileComponent } from './components/settings/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { DeleteDialog, DangerZoneComponent } from './components/settings/danger-
     ForgotComponent,
     SettingsComponent,
     DangerZoneComponent,
+    ProfileComponent,
   ],
   imports: [
     MatCheckboxModule,

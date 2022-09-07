@@ -27,7 +27,6 @@ export class UserSettingsComponent implements OnInit {
     private readonly edit: UserService,
     private snackBar: MatSnackBar,
     private readonly router: Router,
-    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
