@@ -19,7 +19,7 @@ import { SettingsComponent } from '../components/settings/settings.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent, data: { animation: 'HomePage' } },
   { path: 'login', component: LoginComponent, data: { animation: 'LoginPage' } },
-  { path: 'user', component: SettingsComponent, data: { animation: 'UserPage' } },
+  { path: 'settings', component: SettingsComponent, data: { animation: 'SettingsPage' } },
   { path: 'editpost/:post_id', component: EditpostComponent, data: { animation: 'EditPostPage' } },
   { path: 'newpost', component: NewPostComponent, data: { animation: 'NewPostPage' } },
   { path: 'register', component: RegisterComponent, data: { animation: 'RegisterPage' } },
