@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from 'src/app/http/services/user.service';
 
 @Component({
@@ -9,7 +10,10 @@ import { UserService } from 'src/app/http/services/user.service';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private readonly userService: UserService) { }
+  constructor(
+    private readonly userService: UserService,
+    private readonly snackBar: MatSnackBar,
+    ) { }
 
   formGroup!: FormGroup;
 
@@ -34,6 +38,8 @@ export class ProfileComponent implements OnInit {
   editProfile(): void {
     if (this.formGroup.valid) {
       this.userService.editProfile(this.formGroup.value.bio, this.formGroup.value.status, '');
+
+      this.snackBar.open('User Profile updated!', '', { duration: 3000 });
     }
   }
 }
