@@ -1,19 +1,17 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { AuthService } from "../../http/services/auth.service";
+import { AuthService } from "../../../http/services/auth.service";
 import { Router } from "@angular/router";
-import { UserService } from "../../http/services/user.service";
+import { UserService } from "../../../http/services/user.service";
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@angular/material/dialog";
-import { DialogData } from "../posts/posts.component";
 
 
 @Component({
-  selector: 'app-user-settings',
-  templateUrl: './user-settings.component.html',
-  styleUrls: ['../../component-styles/errors.scss', '../../component-styles/data-request.scss', './user-settings.component.scss']
+  selector: 'app-account',
+  templateUrl: './account.component.html',
+  styleUrls: ['../../../component-styles/errors.scss', '../../../component-styles/data-request.scss', './account.component.scss']
 })
-export class UserSettingsComponent implements OnInit {
+export class AccountComponent implements OnInit {
 
   formGroup!: FormGroup;
   isToggleOn = false;
@@ -59,7 +57,7 @@ export class UserSettingsComponent implements OnInit {
         new_password: formValue.new_password,
         old_password: formValue.old_password,
       };
-      this.edit.editUser(payload).subscribe(result => {
+      this.edit.editUser(payload).subscribe(() => {
         this.snackBar.open('Saved!');
       });
     }

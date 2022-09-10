@@ -21,7 +21,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatOptionModule } from "@angular/material/core";
 import { NewPostComponent } from "./components/newpost/newpost.component";
-import { UserSettingsComponent } from "./components/user-settings/user-settings.component";
+import { AccountComponent } from "./components/settings/account/account.component";
 import { EditpostComponent } from './components/editpost/editpost.component';
 import { HttpModule } from "./http/http.module";
 import { RegisterComponent } from './components/register/register.component';
@@ -53,7 +53,7 @@ import { AppearanceComponent } from './components/settings/appearance/appearance
     LoginComponent,
     SorterComponent,
     NewPostComponent,
-    UserSettingsComponent,
+    AccountComponent,
     EditpostComponent,
     RegisterComponent,
     NotfoundComponent,

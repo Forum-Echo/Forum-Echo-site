@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private readonly userService: UserService,
     private readonly snackBar: MatSnackBar,
-    ) { }
+  ) { }
 
   formGroup!: FormGroup;
 
