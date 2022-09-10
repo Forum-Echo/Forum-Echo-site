@@ -47,7 +47,7 @@ export class UserService {
 
   editProfile(bio: string, status: string, emoji: string): void {
     const userId = localStorage.getItem('user_id');
-    
+
     // Patch the bio
     this.http.patch(
       `${baseUrl}user/profile/bio`,
@@ -59,5 +59,9 @@ export class UserService {
       `${baseUrl}user/profile/status`,
       { emoji, content: status, userId }
     ).subscribe(() => {});
+  }
+
+  uploadPicture(data: Object): Observable<any> {
+    return this.http.post(`${baseUrl}user/profile/upload`, data);
   }
 }
