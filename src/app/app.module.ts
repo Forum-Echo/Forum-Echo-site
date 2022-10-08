@@ -42,6 +42,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { DeleteDialog, DangerZoneComponent } from './components/settings/danger-zone/danger-zone.component';
 import { ProfileComponent } from './components/settings/profile/profile.component';
 import { AppearanceComponent } from './components/settings/appearance/appearance.component';
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { AppearanceComponent } from './components/settings/appearance/appearance
     InfiniteScrollModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
+    MatSlideToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

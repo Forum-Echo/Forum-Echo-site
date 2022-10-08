@@ -1,76 +1,38 @@
+@use '../node_modules/@angular/material' as mat;
+
 @import "../node_modules/@angular/material/theming";
-@include mat-core();
 
-$mat-yellow: (
-  50: #fff8e0,
-  100: #feedb1,
-  200: #fde27d,
-  300: #fdd745,
-  400: #fdcd0b,
-  500: #fec400,
-  600: #feb500,
-  700: #ffa200,
-  800: #ff9000,
-  900: #ff6f00,
-  A100: #FFE57F,
-  A200: #FFD740,
-  A400: #FFC400,
-  A700: #FFAB00,
-  contrast: (
-    50: $dark-primary-text,
-    100: $dark-primary-text,
-    200: $dark-primary-text,
-    300: $dark-primary-text,
-    400: $dark-primary-text,
-    500: $dark-primary-text,
-    600: $dark-primary-text,
-    700: $dark-primary-text,
-    800: $dark-primary-text,
-    900: $dark-primary-text,
-    A100: $dark-primary-text,
-    A200: $dark-primary-text,
-    A400: $dark-primary-text,
-    A700: $dark-primary-text,
-  )
-);
-$mat-indigo: (
-  50: #e4f1fa,
-  100: #bcdcf4,
-  200: #94c6ed,
-  300: #6eb0e5,
-  400: #539fe0,
-  500: #3e90db,
-  600: #3783ce,
-  700: #2f71bc,
-  800: #2961aa,
-  900: #1e448a,
-  A100: #8C9EFF,
-  A200: #536DFE,
-  A400: #3D5AFE,
-  A700: #304FFE,
-  contrast: (
-    50: $dark-primary-text,
-    100: $dark-primary-text,
-    200: $dark-primary-text,
-    300: $light-primary-text,
-    400: $light-primary-text,
-    500: $light-primary-text,
-    600: $light-primary-text,
-    700: $light-primary-text,
-    800: $light-primary-text,
-    900: $light-primary-text,
-    A100: $dark-primary-text,
-    A200: $light-primary-text,
-    A400: $light-primary-text,
-    A700: $light-primary-text,
+@include mat-core;
+
+
+$primary: mat-palette($mat-blue, 900);
+$accent:  mat-palette($mat-yellow, 700, A100);
+$warn:    mat-palette($mat-red);
+
+$light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    ),
   )
 );
 
+$angular-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    ),
+  )
+);
 
-$my-primary: mat-palette($mat-indigo, 900);
-$my-accent: mat-palette($mat-yellow, 400);
-$my-warn: mat-palette($mat-red, 500);
+.darkmode {
+  
+  @include mat.all-component-colors($angular-dark-theme);
+}
 
-$my-theme: mat-light-theme($my-primary, $my-accent, $my-warn);
+@include mat.all-component-themes($light-theme);
 
-@include angular-material-theme($my-theme);
