@@ -1,5 +1,5 @@
-<app-header></app-header>
-<div [@routeAnimations]="getRouteAnimationData()">
+<div class="mat-app-background {{getDarkmode()}}">
+  <app-header></app-header>
   <router-outlet class="main-content"></router-outlet>
+  <app-info class="info"></app-info>
 </div>
-<app-info class="info"></app-info>
