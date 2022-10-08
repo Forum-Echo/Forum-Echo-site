@@ -1,0 +1,30 @@
+<div fxLayoutAlign="center center" fxFlexFill class="content">
+  <mat-card fxFlex="25">
+    <mat-toolbar color="primary">User Profile</mat-toolbar>
+    <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="formGroup" (ngSubmit)="editProfile()">
+      <mat-form-field>
+        <input matInput placeholder="Bio" formControlName="bio">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Status" formControlName="status">
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" class="mt-5" color="primary">Save</button>
+    </form>
+    <form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+      <input type="file" class="file-input"
+             (change)="onFileSelected($event)" #fileUpload>
+
+      <div class="file-upload">
+
+        {{fileName || "No file uploaded yet."}}
+
+        <button mat-mini-fab color="primary" class="upload-btn"
+                (click)="fileUpload.click()">
+          <mat-icon>attach_file</mat-icon>
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

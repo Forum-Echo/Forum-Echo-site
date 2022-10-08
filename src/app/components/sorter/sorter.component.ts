@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import {PostService} from "../../http/services/post.service";
 
 @Component({
   selector: 'app-sorter',
@@ -12,9 +11,7 @@ export class SorterComponent implements OnInit {
 
   selection = [true, false];
 
-  constructor(private postService: PostService ){}
   ngOnInit(): void {
-    // this.outputSortingOptions.emit(this.selection);
   }
   toggleSelection(i: number) {
 

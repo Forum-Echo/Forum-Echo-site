@@ -1,6 +1,6 @@
 <div *ngIf="isLoggedIn(); else elseBlock" fxLayoutAlign="center center" fxFlexFill class="content">
   <mat-card fxFlex="25">
-    <mat-toolbar color="primary">User Settings for {{username}}</mat-toolbar>
+    <mat-toolbar color="primary">Account Settings</mat-toolbar>
     <form fxLayoutAlign="stretch" fxLayout="column" class="login-form"
           [formGroup]="formGroup" (ngSubmit)="editUser()"
     >
@@ -18,13 +18,7 @@
       <label id="showP">
         <mat-checkbox name="showP" (click)="togglePass()">Show Password</mat-checkbox>
       </label>
-
-        <button mat-raised-button type="submit" class="form-button mt-5" color="primary">Save</button>
-
-        <button mat-raised-button class="mt-5" color="accent" (click)="logOut()">Log out</button>
-
-      <button mat-raised-button class="mt-5" color="warn" (click)="openFlagDialog()">Delete User</button>
-      <a id="request-data" (click)="openSnackBar()">Request data</a>
+      <button mat-raised-button type="submit" class="form-button mt-5" color="primary">Save</button>
     </form>
   </mat-card>
 </div>
