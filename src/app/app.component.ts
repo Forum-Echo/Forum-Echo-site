@@ -26,13 +26,5 @@ export class AppComponent {
     return localStorage.getItem('theme');
   }
 
-  ngOnInit(): void {
-    const darkClassName = 'darkmode';
-
-    if (localStorage.getItem('theme') === 'darkmode') {
-      this.overlay.getContainerElement().classList.add(darkClassName);
-      return;
-    }
-    this.overlay.getContainerElement().classList.remove(darkClassName);
-  }
+  ngOnInit(): void {}
 }
